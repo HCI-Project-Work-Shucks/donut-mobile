@@ -38,6 +38,7 @@ dependencies:
   http: ^0.13.4
   json_annotation: ^4.4.0
   flutter_signin_button: ^2.0.0
+  crypto: ^3.0.1
 
 dev_dependencies:
   flutter_test:

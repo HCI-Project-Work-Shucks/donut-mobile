@@ -1,7 +1,12 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:donut/src/authorization/login_page.dart';
-import 'package:donut/src/models/registration.dart';
 import 'package:donut/src/widgets/bezier_container.dart';
+import 'package:donut/src/models/user.dart';
+import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key, this.title}) : super(key: key);
@@ -21,7 +26,6 @@ class _SignUpPageState extends State<SignUpPage> {
   final _passwordRegExp = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
 
   final _formKey = GlobalKey<FormState>();
-  final registration = RegistrationModel();
 
   Widget _backButton() {
     return InkWell(
@@ -87,6 +91,25 @@ class _SignUpPageState extends State<SignUpPage> {
         ],
       ),
     );
+  }
+
+  Future<User> _register(String username, String email, String password) async {
+    final response = await http.post(
+      Uri.parse(""),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'username': username,
+        'email': email,
+        'password': md5.convert(utf8.encode(password)).toString()
+      }),
+    );
+    if (response.statusCode == 201) {
+      return User.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception("Failed to create user");
+    }
   }
 
   Widget _submitButton() {
