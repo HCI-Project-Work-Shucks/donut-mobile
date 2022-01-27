@@ -1,4 +1,4 @@
-import 'package:donut/src/login_page.dart';
+import 'package:donut/src/authorization/login_page.dart';
 import 'package:donut/src/models/registration.dart';
 import 'package:donut/src/widgets/bezier_container.dart';
 import 'package:flutter/material.dart';

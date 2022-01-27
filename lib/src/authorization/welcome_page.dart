@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:donut/src/login_page.dart';
-import 'package:donut/src/signup_page.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:donut/src/authorization/login_page.dart';
+import 'package:donut/src/authorization/signup_page.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key, this.title}) : super(key: key);
