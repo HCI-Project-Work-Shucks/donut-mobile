@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'custom_clipper.dart';
 
 class BezierContainer extends StatelessWidget {
-  const BezierContainer({Key ?key}) : super(key: key);
+  const BezierContainer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,15 +12,13 @@ class BezierContainer extends StatelessWidget {
       child: ClipPath(
         clipper: ClipPainter(),
         child: Container(
-          height: MediaQuery.of(context).size.height *.5,
+          height: MediaQuery.of(context).size.height * .5,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.pink.shade200, Colors.pink.shade400]
-              )
-          ),
+                  colors: [Colors.pink.shade200, Colors.pink.shade400])),
         ),
       ),
     );

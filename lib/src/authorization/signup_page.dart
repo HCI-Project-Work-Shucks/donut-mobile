@@ -22,8 +22,10 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  final _emailRegExp = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-  final _passwordRegExp = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+  final _emailRegExp = RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  final _passwordRegExp =
+      RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
 
   final _formKey = GlobalKey<FormState>();
 
@@ -83,11 +85,19 @@ class _SignUpPageState extends State<SignUpPage> {
       child: Column(
         children: <Widget>[
           _entryField("Username", controller: usernameController),
-          _entryField("Email", controller: emailController,
-          validator: (value) => (value!.isEmpty || !_emailRegExp.hasMatch(value)) ? "Invalid email address!" : null),
+          _entryField("Email",
+              controller: emailController,
+              validator: (value) =>
+                  (value!.isEmpty || !_emailRegExp.hasMatch(value))
+                      ? "Invalid email address!"
+                      : null),
           _entryField("Password",
-              isPassword: true, controller: passwordController,
-              validator: (value) => (value!.isEmpty || !_passwordRegExp.hasMatch(value)) ? "At least 8 characters and 1 upper, lower, digit and symbol" : null),
+              isPassword: true,
+              controller: passwordController,
+              validator: (value) => (value!.isEmpty ||
+                      !_passwordRegExp.hasMatch(value))
+                  ? "At least 8 characters and 1 upper, lower, digit and symbol"
+                  : null),
         ],
       ),
     );
@@ -184,15 +194,12 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _title() {
     return RichText(
-      textAlign: TextAlign.center,
-      text: const TextSpan(
+        textAlign: TextAlign.center,
+        text: const TextSpan(
           text: 'Donut',
           style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.w700,
-              color: Colors.pink),
-      )
-    );
+              fontSize: 50, fontWeight: FontWeight.w700, color: Colors.pink),
+        ));
   }
 
   @override

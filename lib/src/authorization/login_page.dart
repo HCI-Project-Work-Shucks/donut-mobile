@@ -3,6 +3,7 @@ import 'package:donut/src/authorization/signup_page.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 
+import 'package:donut/src/homepage/home.dart';
 import '../widgets/bezier_container.dart';
 
 class LoginPage extends StatefulWidget {
@@ -38,8 +39,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _entryField(String title,
       {bool isPassword = false,
-        TextEditingController? controller,
-        String? Function(String?)? validator}) {
+      TextEditingController? controller,
+      String? Function(String?)? validator}) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -66,26 +67,32 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _submitButton() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(vertical: 15),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(5)),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: Colors.grey.shade200,
-                offset: const Offset(2, 4),
-                blurRadius: 5,
-                spreadRadius: 2)
-          ],
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Colors.pink.shade200, Colors.pink.shade400])),
-      child: const Text(
-        'Login',
-        style: TextStyle(fontSize: 20, color: Colors.white),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Home()));
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                  color: Colors.grey.shade200,
+                  offset: const Offset(2, 4),
+                  blurRadius: 5,
+                  spreadRadius: 2)
+            ],
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Colors.pink.shade200, Colors.pink.shade400])),
+        child: const Text(
+          'Login',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
       ),
     );
   }
@@ -126,8 +133,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget _createAccountLabel() {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const SignUpPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const SignUpPage()));
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 20),
@@ -162,11 +169,8 @@ class _LoginPageState extends State<LoginPage> {
         text: const TextSpan(
           text: 'Donut',
           style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.w700,
-              color: Colors.pink),
-        )
-    );
+              fontSize: 50, fontWeight: FontWeight.w700, color: Colors.pink),
+        ));
   }
 
   Widget _emailPasswordWidget() {
@@ -183,46 +187,49 @@ class _LoginPageState extends State<LoginPage> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
         body: SizedBox(
-          height: height,
-          child: Stack(
-            children: <Widget>[
-              Positioned(
-                  top: -height * .15,
-                  right: -MediaQuery.of(context).size.width * .4,
-                  child: const BezierContainer()),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      SizedBox(height: height * .2),
-                      _title(),
-                      const SizedBox(height: 50),
-                      _emailPasswordWidget(),
-                      const SizedBox(height: 20),
-                      _submitButton(),
-                      Container(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        alignment: Alignment.centerRight,
-                        child: const Text('Forgot Password ?',
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w500)),
-                      ),
-                      _divider(),
-                      SignInButton(Buttons.Google, onPressed: () {}, ),
-                      SignInButton(Buttons.FacebookNew, onPressed: () {}),
-                      SignInButton(Buttons.Twitter, onPressed: () {}),
-                      SizedBox(height: height * .055),
-                      _createAccountLabel(),
-                    ],
+      height: height,
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+              top: -height * .15,
+              right: -MediaQuery.of(context).size.width * .4,
+              child: const BezierContainer()),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(height: height * .2),
+                  _title(),
+                  const SizedBox(height: 50),
+                  _emailPasswordWidget(),
+                  const SizedBox(height: 20),
+                  _submitButton(),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    alignment: Alignment.centerRight,
+                    child: const Text('Forgot Password ?',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500)),
                   ),
-                ),
+                  _divider(),
+                  SignInButton(
+                    Buttons.Google,
+                    onPressed: () {},
+                  ),
+                  SignInButton(Buttons.FacebookNew, onPressed: () {}),
+                  SignInButton(Buttons.Twitter, onPressed: () {}),
+                  SizedBox(height: height * .055),
+                  _createAccountLabel(),
+                ],
               ),
-              Positioned(top: 40, left: 0, child: _backButton()),
-            ],
+            ),
           ),
-        ));
+          Positioned(top: 40, left: 0, child: _backButton()),
+        ],
+      ),
+    ));
   }
 }
