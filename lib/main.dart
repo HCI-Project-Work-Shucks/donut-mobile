@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Donut!',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textTheme:GoogleFonts.latoTextTheme(textTheme).copyWith(
+        textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
           bodyText1: GoogleFonts.montserrat(textStyle: textTheme.bodyText1),
         ),
       ),

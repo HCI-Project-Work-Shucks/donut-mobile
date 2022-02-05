@@ -15,8 +15,8 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget _submitButton() {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const LoginPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginPage()));
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -43,8 +43,8 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget _signUpButton() {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const SignUpPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const SignUpPage()));
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -68,18 +68,15 @@ class _WelcomePageState extends State<WelcomePage> {
         text: const TextSpan(
           text: 'Donut',
           style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.w700,
-              color: Colors.pink),
-        )
-    );
+              fontSize: 50, fontWeight: FontWeight.w700, color: Colors.pink),
+        ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:SingleChildScrollView(
-        child:Container(
+      body: SingleChildScrollView(
+        child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
@@ -110,7 +107,7 @@ class _WelcomePageState extends State<WelcomePage> {
               _signUpButton(),
               const SizedBox(
                 height: 20,
-              )
+              ),
             ],
           ),
         ),
