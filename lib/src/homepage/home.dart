@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:donut/src/homepage/demand.dart';
 import 'package:donut/src/homepage/donate.dart';
-import 'package:donut/src/homepage/profile.dart';
+import 'package:donut/src/homepage/profile/profile_main.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class _Home extends State<Home> {
   int _current_index = 1;
   final List<Widget> _children = [
     DonatePage(),
-    ProfilePage(),
+    profileMain(),
     DemandPage(),
   ];
   void onTappedBar(int index) {
