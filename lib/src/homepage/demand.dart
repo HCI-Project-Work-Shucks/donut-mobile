@@ -10,9 +10,9 @@ class DemandPage extends StatefulWidget {
 class _DemandPageState extends State<DemandPage> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('demand page'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('demand page'),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -22,8 +22,8 @@ class _DemandPageState extends State<DemandPage> {
           ),
         ),
       ),
-      body: new Center(
-        child: new Text('demand page'),
+      body: const Center(
+        child: Text('demand page'),
       ),
     );
   }

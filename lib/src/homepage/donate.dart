@@ -10,14 +10,12 @@ class DonatePage extends StatefulWidget {
 }
 
 class _DonatePage extends State<DonatePage> {
-  final List<String> _todoList = <String>[];
-  final TextEditingController _textFieldController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('donate page'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('donate page'),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -27,8 +25,8 @@ class _DonatePage extends State<DonatePage> {
           ),
         ),
       ),
-      body: new Center(
-        child: new Text('demand page'),
+      body: const Center(
+        child: Text('demand page'),
       ),
     );
   }

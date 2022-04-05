@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:donut/src/authorization/login_page.dart';
-import 'package:donut/src/widgets/bezier_container.dart';
-import 'package:donut/src/models/user.dart';
 import 'package:crypto/crypto.dart';
+import 'package:donut/src/authorization/login_page.dart';
+import 'package:donut/src/models/user.dart';
+import 'package:donut/src/widgets/bezier_container.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 

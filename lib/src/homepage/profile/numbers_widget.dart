@@ -12,17 +12,19 @@ class NumbersWidget extends StatelessWidget {
         children: <Widget>[
           buildButton(text: 'Completed', value: value1),
           buildDivider(),
-          buildButton(text: 'Incompleted', value: value2),
+          buildButton(text: 'Uncompleted', value: value2),
           buildDivider(),
           buildButton(text: 'Pending', value: value3),
         ],
       );
-  Widget buildDivider() => Container(
+
+  Widget buildDivider() => const SizedBox(
         height: 24,
-        child: const VerticalDivider(
+        child: VerticalDivider(
           color: Colors.black,
         ),
       );
+
   Widget buildButton({required String text, required int value}) =>
       MaterialButton(
         padding: const EdgeInsets.symmetric(vertical: 4),
@@ -42,7 +44,7 @@ class NumbersWidget extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               text,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ],
         ),

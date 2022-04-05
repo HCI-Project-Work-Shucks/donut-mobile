@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:donut/src/authorization/login_page.dart';
 import 'package:donut/src/authorization/signup_page.dart';
+import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key, this.title}) : super(key: key);

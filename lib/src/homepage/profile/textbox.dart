@@ -4,6 +4,7 @@ class TextBox extends StatelessWidget {
   const TextBox({Key? key}) : super(key: key);
   final username = 'I need a donut';
   final userpfp = 'assets/images/profile_pic.jpeg';
+
   @override
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -13,6 +14,7 @@ class TextBox extends StatelessWidget {
           buildButton(text: username),
         ],
       );
+
   Widget userPfp() {
     return Image.asset(
       userpfp,
@@ -22,9 +24,9 @@ class TextBox extends StatelessWidget {
     );
   }
 
-  Widget buildDivider() => Container(
+  Widget buildDivider() => const SizedBox(
         height: 24,
-        child: const VerticalDivider(
+        child: VerticalDivider(
           color: Colors.black,
         ),
       );
