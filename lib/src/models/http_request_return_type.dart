@@ -1,0 +1,1 @@
+enum HttpRequestReturnType { json, string, fullResponse }
