@@ -1,6 +1,8 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, unused_field
 
 import 'package:flutter/material.dart';
+
+import 'package:donut/src/constants.dart';
 
 class DonatePage extends StatefulWidget {
   const DonatePage({Key? key}) : super(key: key);
@@ -15,20 +17,13 @@ class _DonatePage extends State<DonatePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('donate page'),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[Colors.white, Colors.pink]),
-          ),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('donate page'),
+        backgroundColor: kPrimaryColor,
       ),
-      body: new Center(
-        child: new Text('demand page'),
+      body: const Center(
+        child: Text('demand page'),
       ),
     );
   }

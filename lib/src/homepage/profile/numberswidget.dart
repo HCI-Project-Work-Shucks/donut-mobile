@@ -1,4 +1,8 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
+
+import 'package:donut/src/homepage/chat/chat.dart';
 
 class NumbersWidget extends StatelessWidget {
   const NumbersWidget({Key? key}) : super(key: key);
@@ -10,20 +14,21 @@ class NumbersWidget extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          buildButton(text: 'Completed', value: value1),
+          buildButton(context, text: 'Completed', value: value1),
           buildDivider(),
-          buildButton(text: 'Incompleted', value: value2),
+          buildButton(context, text: 'Incompleted', value: value2),
           buildDivider(),
-          buildButton(text: 'Pending', value: value3),
+          buildButton(context, text: 'Pending', value: value3),
         ],
       );
-  Widget buildDivider() => Container(
+  Widget buildDivider() => const SizedBox(
         height: 24,
-        child: const VerticalDivider(
+        child: VerticalDivider(
           color: Colors.black,
         ),
       );
-  Widget buildButton({required String text, required int value}) =>
+  Widget buildButton(BuildContext context,
+          {required String text, required int value}) =>
       MaterialButton(
         padding: const EdgeInsets.symmetric(vertical: 4),
         onPressed: () {},
@@ -42,7 +47,7 @@ class NumbersWidget extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               text,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ],
         ),

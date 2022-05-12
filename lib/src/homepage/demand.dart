@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:donut/src/constants.dart';
+
 class DemandPage extends StatefulWidget {
   const DemandPage({Key? key}) : super(key: key);
 
@@ -10,20 +12,13 @@ class DemandPage extends StatefulWidget {
 class _DemandPageState extends State<DemandPage> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('demand page'),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[Colors.white, Colors.pink]),
-          ),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('demand page'),
+        backgroundColor: kPrimaryColor,
       ),
-      body: new Center(
-        child: new Text('demand page'),
+      body: const Center(
+        child: Text('demand page'),
       ),
     );
   }

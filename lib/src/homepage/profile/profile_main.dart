@@ -1,7 +1,9 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
 import 'package:donut/src/homepage/profile/numberswidget.dart';
-import 'package:donut/src/homepage/profile/textbox.dart';
+import 'package:donut/src/constants.dart';
 
 class profileMain extends StatefulWidget {
   const profileMain({Key? key}) : super(key: key);
@@ -45,16 +47,12 @@ class _profileMainState extends State<profileMain> {
           top: top,
           child: buildProfileImage(),
         ),
-        Positioned(
-          top: 500,
-          child: buildTexting(),
-        ),
       ],
     );
   }
 
   Widget buildProfileCover() => Container(
-        color: Colors.pink[200],
+        color: kPrimaryColor,
         child: Image.asset(
           profileCover,
           width: double.infinity,
@@ -91,23 +89,6 @@ class _profileMainState extends State<profileMain> {
           Divider(
             color: Colors.black,
           ),
-        ],
-      );
-
-  Widget buildTexting() => Column(
-        children: const [
-          Text(
-            'Pending Deals: ',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-          ),
-          Divider(
-            thickness: 1,
-            color: Colors.black,
-          ),
-          SizedBox(height: 8),
-          TextBox(),
-          Divider(),
-          TextBox(),
         ],
       );
 }

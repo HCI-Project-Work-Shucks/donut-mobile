@@ -1,8 +1,12 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
+import 'package:donut/src/constants.dart';
 import 'package:donut/src/homepage/demand.dart';
 import 'package:donut/src/homepage/donate.dart';
 import 'package:donut/src/homepage/profile/profile_main.dart';
+import 'package:donut/src/homepage/chat/chat.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,9 +18,10 @@ class Home extends StatefulWidget {
 class _Home extends State<Home> {
   int _current_index = 1;
   final List<Widget> _children = [
-    DonatePage(),
-    profileMain(),
-    DemandPage(),
+    const DonatePage(),
+    const profileMain(),
+    const DemandPage(),
+    const chat(),
   ];
   void onTappedBar(int index) {
     setState(() {
@@ -26,28 +31,32 @@ class _Home extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       body: _children[_current_index],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed, // Fixed
-        backgroundColor: Colors.pink[200], // <-- This works for fixed
+        backgroundColor: kPrimaryColor, // <-- This works for fixed
         selectedItemColor: Colors.pink[400],
         unselectedItemColor: Colors.white,
 
         onTap: onTappedBar,
         currentIndex: _current_index,
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: new Icon(Icons.favorite),
-            title: new Text('Donate'),
+            icon: Icon(Icons.favorite),
+            label: 'Donate',
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.account_circle),
-            title: new Text('Profile'),
+            icon: Icon(Icons.account_circle),
+            label: 'Profile',
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.forward_rounded),
-            title: new Text('Demand'),
+            icon: Icon(Icons.forward_rounded),
+            label: 'Demand',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.forward_10_outlined),
+            label: 'Contact',
           ),
         ],
       ),
