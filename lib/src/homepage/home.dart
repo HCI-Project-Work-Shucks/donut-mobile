@@ -16,16 +16,17 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> {
-  int _current_index = 1;
+  var _currentIndex = 1;
   final List<Widget> _children = [
     const DonatePage(),
     const profileMain(),
     const DemandPage(),
     const chat(),
   ];
+
   void onTappedBar(int index) {
     setState(() {
-      _current_index = index;
+      _currentIndex = index;
     });
   }
 
@@ -40,6 +41,7 @@ class _Home extends State<Home> {
         unselectedItemColor: Colors.white,
 
         onTap: onTappedBar,
+
         currentIndex: _current_index,
         items: const [
           BottomNavigationBarItem(

@@ -16,17 +16,19 @@ class NumbersWidget extends StatelessWidget {
         children: <Widget>[
           buildButton(context, text: 'Completed', value: value1),
           buildDivider(),
-          buildButton(context, text: 'Incompleted', value: value2),
+          buildButton(text: 'Uncompleted', value: value2),
           buildDivider(),
           buildButton(context, text: 'Pending', value: value3),
         ],
       );
+
   Widget buildDivider() => const SizedBox(
         height: 24,
         child: VerticalDivider(
           color: Colors.black,
         ),
       );
+
   Widget buildButton(BuildContext context,
           {required String text, required int value}) =>
       MaterialButton(

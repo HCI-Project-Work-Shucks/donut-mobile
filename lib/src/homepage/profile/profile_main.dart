@@ -1,18 +1,15 @@
-// ignore_for_file: camel_case_types
-
+import 'package:donut/src/homepage/profile/numbers_widget.dart';
+import 'package:donut/src/homepage/profile/textbox.dart';
 import 'package:flutter/material.dart';
 
-import 'package:donut/src/homepage/profile/numberswidget.dart';
-import 'package:donut/src/constants.dart';
-
-class profileMain extends StatefulWidget {
-  const profileMain({Key? key}) : super(key: key);
+class ProfileMain extends StatefulWidget {
+  const ProfileMain({Key? key}) : super(key: key);
 
   @override
-  State<profileMain> createState() => _profileMainState();
+  State<ProfileMain> createState() => _ProfileMainState();
 }
 
-class _profileMainState extends State<profileMain> {
+class _ProfileMainState extends State<ProfileMain> {
   final double coverHeight = 200;
   final double profileHeight = 144;
   final profileCover = 'assets/images/profile_bg.jpeg';
@@ -59,6 +56,7 @@ class _profileMainState extends State<profileMain> {
           height: coverHeight,
         ),
       );
+
   Widget buildProfileImage() => ClipOval(
         child: Image.asset(
           profileImage,
@@ -67,6 +65,7 @@ class _profileMainState extends State<profileMain> {
           height: 140.0,
         ),
       );
+
   Widget buildContent() => Column(
         children: const [
           SizedBox(height: 8),

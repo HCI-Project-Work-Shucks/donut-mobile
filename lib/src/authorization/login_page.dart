@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:donut/src/authorization/signup_page.dart';
+import 'package:donut/src/homepage/home.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 
-import 'package:donut/src/homepage/home.dart';
 import '../widgets/bezier_container.dart';
 
 class LoginPage extends StatefulWidget {

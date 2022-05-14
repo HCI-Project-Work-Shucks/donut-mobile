@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: unnecessary_import
-import 'package:flutter/painting.dart';
 
 class ClipPainter extends CustomClipper<Path> {
   @override

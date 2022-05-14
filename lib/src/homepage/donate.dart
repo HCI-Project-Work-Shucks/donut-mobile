@@ -12,8 +12,6 @@ class DonatePage extends StatefulWidget {
 }
 
 class _DonatePage extends State<DonatePage> {
-  final List<String> _todoList = <String>[];
-  final TextEditingController _textFieldController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
