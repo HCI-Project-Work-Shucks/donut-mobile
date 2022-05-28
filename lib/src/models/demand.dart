@@ -6,7 +6,14 @@ class Demand {
   DateTime updated;
   bool deleted;
 
-  Demand(this.id, this.creator, this.item, this.closed, this.updated, this.deleted);
+  Demand(
+    this.id,
+    this.creator,
+    this.item,
+    this.closed,
+    this.updated,
+    this.deleted,
+  );
 
   factory Demand.fromJson(Map<String, dynamic> json) {
     return Demand(
@@ -15,7 +22,7 @@ class Demand {
       json['item'],
       json['closed'],
       json['updated'],
-      json['deleted']
+      json['deleted'],
     );
   }
 

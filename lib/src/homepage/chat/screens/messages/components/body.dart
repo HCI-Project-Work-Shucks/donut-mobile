@@ -1,5 +1,5 @@
 import 'package:donut/src/constants.dart';
-import 'package:donut/src/models/message.dart';
+import 'package:donut/src/models/tests/message_test.dart';
 import 'package:flutter/material.dart';
 
 import 'chat_input_field.dart';

@@ -1,4 +1,4 @@
-import 'package:donut/src/models/chat.dart';
+import 'package:donut/src/models/tests/chat.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';

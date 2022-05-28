@@ -5,7 +5,13 @@ class Address {
   String desc;
   String postcode;
 
-  Address(this.id, this.owner, this.title, this.desc, this.postcode);
+  Address(
+    this.id,
+    this.owner,
+    this.title,
+    this.desc,
+    this.postcode,
+  );
 
   factory Address.fromJson(Map<String, dynamic> json) {
     return Address(
@@ -13,7 +19,7 @@ class Address {
       json['owner'],
       json['title'],
       json['desc'],
-      json['postcode']
+      json['postcode'],
     );
   }
 

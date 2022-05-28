@@ -3,7 +3,11 @@ class Category {
   int parent;
   String title;
 
-  Category(this.id, this.parent, this.title);
+  Category(
+    this.id,
+    this.parent,
+    this.title,
+  );
 
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(

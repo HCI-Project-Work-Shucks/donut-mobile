@@ -14,11 +14,11 @@ class NumbersWidget extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          buildButton(context, text: 'Completed', value: value1),
+          buildButton(text: 'Completed', value: value1),
           buildDivider(),
           buildButton(text: 'Uncompleted', value: value2),
           buildDivider(),
-          buildButton(context, text: 'Pending', value: value3),
+          buildButton(text: 'Pending', value: value3),
         ],
       );
 
@@ -29,8 +29,7 @@ class NumbersWidget extends StatelessWidget {
         ),
       );
 
-  Widget buildButton(BuildContext context,
-          {required String text, required int value}) =>
+  Widget buildButton({required String text, required int value}) =>
       MaterialButton(
         padding: const EdgeInsets.symmetric(vertical: 4),
         onPressed: () {},

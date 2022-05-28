@@ -1,6 +1,4 @@
-import 'package:donut/src/homepage/chat/components/filled_outline_button.dart';
-import 'package:donut/src/models/chat.dart';
-import 'package:donut/src/constants.dart';
+import 'package:donut/src/models/tests/chat.dart';
 import 'package:donut/src/homepage/chat/screens/messages/message_screen.dart';
 import 'package:flutter/material.dart';
 

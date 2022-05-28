@@ -9,6 +9,10 @@ class AddItemDonate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String item = '';
+    String description = '';
+    String picture = '';
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add item that you need'),
@@ -32,11 +36,12 @@ class AddItemDonate extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(10),
               width: 10,
-              child: const TextField(
-                decoration: InputDecoration(
+              child: TextField(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Type here',
                 ),
+                onSubmitted: ((text) => item = text),
               ),
             ),
             Container(
@@ -52,16 +57,17 @@ class AddItemDonate extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(10),
-              child: const TextField(
+              child: TextField(
                 keyboardType: TextInputType.multiline,
                 minLines: 1, //Normal textInputField will be displayed
                 maxLines: 5,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Type here',
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 50.0, horizontal: 10),
                 ),
+                onSubmitted: ((text) => description = text),
               ),
             ),
             Container(
@@ -69,25 +75,21 @@ class AddItemDonate extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.only(top: 20),
               child: const Text(
-                'Please provide a picture of the item that you want',
+                'Please provide a url to the picture of the item that you want',
                 style: TextStyle(
                   fontSize: 20,
                 ),
               ),
             ),
             Container(
-              alignment: Alignment.centerLeft,
-              height: 50,
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-              child: FloatingActionButton(
-                backgroundColor: kPrimaryColor,
-                tooltip: 'Upload picture here',
-                onPressed: () {},
-                child: const Icon(
-                  Icons.file_upload_outlined,
-                  color: Colors.white,
-                  size: 30.0,
+              padding: const EdgeInsets.all(10),
+              width: 10,
+              child: TextField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Type here',
                 ),
+                onSubmitted: ((text) => picture = text),
               ),
             ),
             Container(

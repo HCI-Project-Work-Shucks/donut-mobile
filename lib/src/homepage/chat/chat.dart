@@ -5,8 +5,8 @@ import 'package:donut/src/homepage/chat/screens/chats/chats_screen.dart';
 import 'package:donut/src/theme.dart';
 import 'package:flutter/material.dart';
 
-class chat extends StatelessWidget {
-  const chat({Key? key}) : super(key: key);
+class Chat extends StatelessWidget {
+  const Chat({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override

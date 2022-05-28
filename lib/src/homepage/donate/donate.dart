@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use, unused_field
 
+import 'package:donut/src/homepage/donate/donate_items_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:donut/src/constants.dart';
@@ -21,19 +22,22 @@ class _DonatePage extends State<DonatePage> {
         title: const Text('donate page'),
         backgroundColor: kPrimaryColor,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Donate page',
+      body: Column(
+        children: [
+          const TextField(
+            decoration: InputDecoration(
+              hintText: "Search items here",
+              border: InputBorder.none,
             ),
-            Text(
-              'HI',
-              style: Theme.of(context).textTheme.headline4,
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: createItems.length,
+              itemBuilder: (context, index) =>
+                  DonateItemWidget(item: createItems[index]),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
