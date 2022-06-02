@@ -1,6 +1,6 @@
 import 'package:donut/src/homepage/profile/numbers_widget.dart';
-import 'package:donut/src/homepage/profile/textbox.dart';
 import 'package:flutter/material.dart';
+import 'package:donut/src/constants.dart';
 
 class ProfileMain extends StatefulWidget {
   const ProfileMain({Key? key}) : super(key: key);
@@ -44,16 +44,12 @@ class _ProfileMainState extends State<ProfileMain> {
           top: top,
           child: buildProfileImage(),
         ),
-        Positioned(
-          top: 500,
-          child: buildTexting(),
-        ),
       ],
     );
   }
 
   Widget buildProfileCover() => Container(
-        color: Colors.pink[200],
+        color: kPrimaryColor,
         child: Image.asset(
           profileCover,
           width: double.infinity,
@@ -92,23 +88,6 @@ class _ProfileMainState extends State<ProfileMain> {
           Divider(
             color: Colors.black,
           ),
-        ],
-      );
-
-  Widget buildTexting() => Column(
-        children: const [
-          Text(
-            'Pending Deals: ',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-          ),
-          Divider(
-            thickness: 1,
-            color: Colors.black,
-          ),
-          SizedBox(height: 8),
-          TextBox(),
-          Divider(),
-          TextBox(),
         ],
       );
 }

@@ -13,7 +13,7 @@ class Message {
       json['thread'],
       json['message'],
       json['image'],
-      json['updated']
+      json['updated'],
     );
   }
 

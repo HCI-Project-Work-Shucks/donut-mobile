@@ -6,16 +6,23 @@ class User {
   bool verified;
   bool deleted;
 
-  User(this.id, this.name, this.phone, this.email, this.verified, this.deleted);
+  User(
+    this.id,
+    this.name,
+    this.phone,
+    this.email,
+    this.verified,
+    this.deleted,
+  );
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-        json['id'],
-        json['name'],
-        json['phone'],
-        json['email'],
-        json['verified'],
-        json['deleted']
+      json['id'],
+      json['name'],
+      json['phone'],
+      json['email'],
+      json['verified'],
+      json['deleted'],
     );
   }
 

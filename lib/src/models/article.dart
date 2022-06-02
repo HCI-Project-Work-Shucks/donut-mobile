@@ -7,7 +7,15 @@ class Article {
   bool deleted;
   DateTime updated;
 
-  Article(this.id, this.category, this.title, this.quantity, this.desc, this.deleted, this.updated);
+  Article(
+    this.id,
+    this.category,
+    this.title,
+    this.quantity,
+    this.desc,
+    this.deleted,
+    this.updated,
+  );
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
@@ -17,7 +25,7 @@ class Article {
       json['quantity'],
       json['desc'],
       json['deleted'],
-      json['updated']
+      json['updated'],
     );
   }
 

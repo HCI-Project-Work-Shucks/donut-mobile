@@ -1,7 +1,13 @@
-import 'package:donut/src/homepage/demand.dart';
-import 'package:donut/src/homepage/donate.dart';
-import 'package:donut/src/homepage/profile/profile_main.dart';
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
+
+import 'package:donut/src/constants.dart';
+import 'package:donut/src/homepage/demand/demand.dart';
+import 'package:donut/src/homepage/donate/donate.dart';
+import 'package:donut/src/homepage/profile/profile.dart';
+import 'package:donut/src/homepage/chat/chat.dart';
+import 'package:donut/src/homepage/notification/notification.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -16,6 +22,8 @@ class _Home extends State<Home> {
     const DonatePage(),
     const ProfileMain(),
     const DemandPage(),
+    const Chat(),
+    const Notice(),
   ];
 
   void onTappedBar(int index) {
@@ -29,14 +37,13 @@ class _Home extends State<Home> {
     return Scaffold(
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        // Fixed
-        backgroundColor: Colors.pink[200],
-        // <-- This works for fixed
-        selectedItemColor: Colors.pink[400],
+        type: BottomNavigationBarType.fixed, // Fixed
+        backgroundColor: kPrimaryColor, // <-- This works for fixed
+        selectedItemColor: kSecondaryColor,
         unselectedItemColor: Colors.white,
 
         onTap: onTappedBar,
+
         currentIndex: _currentIndex,
         items: const [
           BottomNavigationBarItem(
@@ -50,6 +57,14 @@ class _Home extends State<Home> {
           BottomNavigationBarItem(
             icon: Icon(Icons.forward_rounded),
             label: 'Demand',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.forward_10_outlined),
+            label: 'Contact',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notification',
           ),
         ],
       ),

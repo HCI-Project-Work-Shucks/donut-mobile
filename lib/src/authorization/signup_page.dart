@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element, avoid_print, duplicate_ignore
+
 import 'dart:async';
 import 'dart:convert';
 
@@ -125,6 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget _submitButton() {
     return InkWell(
       onTap: () {
+        // ignore: avoid_print
         print(
             "Registered with Username: ${usernameController.text}, Email: ${emailController.text}, Password: ${passwordController.text}");
         if (_formKey.currentState!.validate()) {

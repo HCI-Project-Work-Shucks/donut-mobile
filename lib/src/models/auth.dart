@@ -5,13 +5,17 @@ class Auth {
   Int8 type;
   String password;
 
-  Auth(this.uid, this.type, this.password);
+  Auth(
+    this.uid,
+    this.type,
+    this.password,
+  );
 
   factory Auth.fromJson(Map<String, dynamic> json) {
     return Auth(
       json['uid'],
       json['type'],
-      json['password']
+      json['password'],
     );
   }
 

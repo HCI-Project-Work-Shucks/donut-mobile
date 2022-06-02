@@ -9,7 +9,15 @@ class Comment {
   DateTime updated;
   bool deleted;
 
-  Comment(this.id, this.targetType, this.targetId, this.creator, this.desc, this.updated, this.deleted);
+  Comment(
+    this.id,
+    this.targetType,
+    this.targetId,
+    this.creator,
+    this.desc,
+    this.updated,
+    this.deleted,
+  );
 
   factory Comment.fromJson(Map<String, dynamic> json) {
     return Comment(

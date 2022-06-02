@@ -4,14 +4,19 @@ class Thread {
   int initiator;
   int peer;
 
-  Thread(this.id, this.fulfilment, this.initiator, this.peer);
+  Thread(
+    this.id,
+    this.fulfilment,
+    this.initiator,
+    this.peer,
+  );
 
   factory Thread.fromJson(Map<String, dynamic> json) {
     return Thread(
       json['id'],
       json['fulfilment'],
       json['initiator'],
-      json['peer']
+      json['peer'],
     );
   }
 

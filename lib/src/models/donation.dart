@@ -6,16 +6,23 @@ class Donation {
   DateTime updated;
   bool deleted;
 
-  Donation(this.id, this.creator, this.item, this.closed, this.updated, this.deleted);
+  Donation(
+    this.id,
+    this.creator,
+    this.item,
+    this.closed,
+    this.updated,
+    this.deleted,
+  );
 
   factory Donation.fromJson(Map<String, dynamic> json) {
     return Donation(
-        json['id'],
-        json['creator'],
-        json['item'],
-        json['closed'],
-        json['updated'],
-        json['deleted']
+      json['id'],
+      json['creator'],
+      json['item'],
+      json['closed'],
+      json['updated'],
+      json['deleted'],
     );
   }
 

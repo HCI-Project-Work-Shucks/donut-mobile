@@ -37,6 +37,7 @@ class ClipPainter extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
+    // ignore: todo
     // TODO: implement shouldReclip
     return true;
   }
