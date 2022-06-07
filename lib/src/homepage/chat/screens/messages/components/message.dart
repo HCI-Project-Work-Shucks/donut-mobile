@@ -2,9 +2,7 @@ import 'package:donut/src/models/tests/message_test.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
-import 'audio_message.dart';
 import 'text_message.dart';
-import 'video_message.dart';
 
 class Message extends StatelessWidget {
   const Message({
@@ -17,16 +15,7 @@ class Message extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget messageContaint(ChatMessage message) {
-      switch (message.messageType) {
-        case ChatMessageType.text:
-          return TextMessage(message: message);
-        case ChatMessageType.audio:
-          return AudioMessage(message: message);
-        case ChatMessageType.video:
-          return const VideoMessage();
-        default:
-          return const SizedBox();
-      }
+      return TextMessage(message: message);
     }
 
     return Padding(
