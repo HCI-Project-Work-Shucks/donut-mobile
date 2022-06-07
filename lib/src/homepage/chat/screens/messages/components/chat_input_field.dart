@@ -23,7 +23,6 @@ class ChatInputField extends StatelessWidget {
       child: SafeArea(
         child: Row(
           children: [
-            const Icon(Icons.mic, color: kPrimaryColor),
             const SizedBox(width: kDefaultPadding),
             Expanded(
               child: Container(
@@ -36,14 +35,6 @@ class ChatInputField extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.sentiment_satisfied_alt_outlined,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyText1!
-                          .color!
-                          .withOpacity(0.64),
-                    ),
                     const SizedBox(width: kDefaultPadding / 4),
                     Expanded(
                       child: TextField(
@@ -55,7 +46,6 @@ class ChatInputField extends StatelessWidget {
                           final message = ChatMessage(
                             text: text,
                             messageStatus: MessageStatus.not_view,
-                            messageType: ChatMessageType.text,
                             isSender: true,
                           );
                           setState(() => demeChatMessages.add(message));
@@ -63,14 +53,6 @@ class ChatInputField extends StatelessWidget {
                         },
                         controller: controller,
                       ),
-                    ),
-                    Icon(
-                      Icons.attach_file,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyText1!
-                          .color!
-                          .withOpacity(0.64),
                     ),
                     const SizedBox(width: kDefaultPadding / 4),
                     Icon(

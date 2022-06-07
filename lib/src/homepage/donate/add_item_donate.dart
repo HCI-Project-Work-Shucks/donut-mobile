@@ -101,6 +101,7 @@ class AddItemDonate extends StatelessWidget {
                 color: kPrimaryColor,
                 child: const Text('Submit'),
                 onPressed: () {
+                  setState(() {});
                   Navigator.pop(context);
                 },
               ),
@@ -110,4 +111,6 @@ class AddItemDonate extends StatelessWidget {
       ),
     );
   }
+
+  void setState(void Function() param0) {}
 }
