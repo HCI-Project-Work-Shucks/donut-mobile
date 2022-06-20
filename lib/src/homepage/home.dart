@@ -7,7 +7,7 @@ import 'package:donut/src/homepage/demand/demand.dart';
 import 'package:donut/src/homepage/donate/donate.dart';
 import 'package:donut/src/homepage/profile/profile.dart';
 import 'package:donut/src/homepage/chat/chat.dart';
-import 'package:donut/src/homepage/notification/notification.dart';
+import 'package:donut/src/homepage/notification/notification_page.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
