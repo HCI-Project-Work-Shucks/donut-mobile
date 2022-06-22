@@ -1,7 +1,6 @@
-import 'package:donut/src/models/tests/items.dart';
+import 'package:donut/src/models/tests/donate_items.dart';
 import 'package:flutter/material.dart';
 
-import 'package:donut/src/homepage/donate/add_item_donate.dart';
 import 'package:donut/src/constants.dart';
 
 class DonateItemWidget extends StatelessWidget {
@@ -10,12 +9,13 @@ class DonateItemWidget extends StatelessWidget {
     required this.item,
   }) : super(key: key);
 
-  final Itmes item;
+  final DonateItmes item;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: kDefaultPadding),
+      padding: const EdgeInsets.only(
+          top: kDefaultPadding, left: kDefaultPadding, right: kDefaultPadding),
       child: Row(
         children: [
           Expanded(
@@ -24,26 +24,61 @@ class DonateItemWidget extends StatelessWidget {
                   ? CrossAxisAlignment.end
                   : CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    if (!item.isSender) ...[
+                if (!item.isSender) ...[
+                  Row(
+                    children: [
                       const CircleAvatar(
                         radius: 12,
                         backgroundImage:
                             AssetImage("assets/images/profile_pic.jpeg"),
                       ),
-                      Column(
-                        children: [
-                          const SizedBox(width: kDefaultPadding / 2),
-                          Image.asset(item.picture),
-                        ],
-                      ),
+                      Text(item.name)
                     ],
-                  ],
-                ),
+                  ),
+                  const SizedBox(width: kDefaultPadding / 2),
+                  Image.asset(
+                    item.picture,
+                    height: 200,
+                    width: 200,
+                  ),
+                  Text(
+                    'Item needed: ' + item.title,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Description: ' + item.description,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  RaisedButton(
+                    textColor: Colors.white,
+                    color: kPrimaryColor,
+                    child: const Text('Intereseted'),
+                    onPressed: () {},
+                  ),
+                ],
                 if (item.isSender) ...[
                   const SizedBox(width: kDefaultPadding / 2),
-                  Image.asset(item.picture),
+                  Image.asset(
+                    item.picture,
+                    height: 200,
+                    width: 200,
+                  ),
+                  Text(
+                    'Item needed: ' + item.title,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'Description: ' + item.description,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
                 ],
               ],
             ),

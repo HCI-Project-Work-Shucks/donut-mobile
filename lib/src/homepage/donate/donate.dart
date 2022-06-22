@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:donut/src/constants.dart';
 import 'add_item_donate.dart';
-import 'package:donut/src/models/tests/items.dart';
+import 'package:donut/src/models/tests/donate_items.dart';
 
 class DonatePage extends StatefulWidget {
   const DonatePage({Key? key}) : super(key: key);
@@ -24,12 +24,6 @@ class _DonatePage extends State<DonatePage> {
       ),
       body: Column(
         children: [
-          const TextField(
-            decoration: InputDecoration(
-              hintText: "Search items here",
-              border: InputBorder.none,
-            ),
-          ),
           Expanded(
             child: ListView.builder(
               itemCount: createItems.length,

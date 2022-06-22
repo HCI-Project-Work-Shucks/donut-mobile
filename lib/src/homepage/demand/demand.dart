@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:donut/src/constants.dart';
 import 'add_item_demand.dart';
-import 'package:donut/src/models/tests/items.dart';
+import 'package:donut/src/models/tests/demand_items.dart';
+
+import 'package:donut/src/homepage/demand/demand_items_widget.dart';
 
 class DemandPage extends StatefulWidget {
   const DemandPage({Key? key}) : super(key: key);
@@ -21,19 +23,16 @@ class _DemandPage extends State<DemandPage> {
         title: const Text('donate page'),
         backgroundColor: kPrimaryColor,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Demand page',
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: createItems.length,
+              itemBuilder: (context, index) =>
+                  DemandItemWidget(item: createItems[index]),
             ),
-            Text(
-              'Hi',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
