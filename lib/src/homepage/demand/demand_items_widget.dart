@@ -1,15 +1,15 @@
-import 'package:donut/src/models/tests/donate_items.dart';
+import 'package:donut/src/models/tests/demand_items.dart';
 import 'package:flutter/material.dart';
 
 import 'package:donut/src/constants.dart';
 
-class DonateItemWidget extends StatelessWidget {
-  const DonateItemWidget({
+class DemandItemWidget extends StatelessWidget {
+  const DemandItemWidget({
     Key? key,
     required this.item,
   }) : super(key: key);
 
-  final DonateItmes item;
+  final DemandItems item;
 
   @override
   Widget build(BuildContext context) {

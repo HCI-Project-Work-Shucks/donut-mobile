@@ -7,7 +7,6 @@ import 'package:donut/src/homepage/demand/demand.dart';
 import 'package:donut/src/homepage/donate/donate.dart';
 import 'package:donut/src/homepage/profile/profile.dart';
 import 'package:donut/src/homepage/chat/chat.dart';
-import 'package:donut/src/homepage/notification/notification_page.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -23,7 +22,6 @@ class _Home extends State<Home> {
     const ProfileMain(),
     const DemandPage(),
     const Chat(),
-    const Notice(),
   ];
 
   void onTappedBar(int index) {
@@ -61,10 +59,6 @@ class _Home extends State<Home> {
           BottomNavigationBarItem(
             icon: Icon(Icons.forward_10_outlined),
             label: 'Contact',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notification',
           ),
         ],
       ),
