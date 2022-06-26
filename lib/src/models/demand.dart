@@ -15,6 +15,8 @@ class Demand {
     this.deleted,
   );
 
+  //final response = http.get(/api/v1/demands)
+
   factory Demand.fromJson(Map<String, dynamic> json) {
     return Demand(
       json['id'],

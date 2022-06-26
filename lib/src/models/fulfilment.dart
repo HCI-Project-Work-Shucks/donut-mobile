@@ -15,6 +15,8 @@ class Fulfilment {
     this.status,
   );
 
+  //final response = http.get(/api/v1/fulfilments)
+
   factory Fulfilment.fromJson(Map<String, dynamic> json) {
     return Fulfilment(
       json['id'],

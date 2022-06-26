@@ -9,6 +9,8 @@ class Category {
     this.title,
   );
 
+  //final response = http.get(Url)
+
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(
       json['id'],

@@ -16,13 +16,13 @@ class Body extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
             child: ListView.builder(
-              itemCount: demeChatMessages.length,
+              itemCount: Messages.length,
               itemBuilder: (context, index) =>
-                  Message(message: demeChatMessages[index]),
+                  Message(message: Messages[index]),
             ),
           ),
         ),
-        const ChatInputField(),
+        ChatInputField(),
       ],
     );
   }

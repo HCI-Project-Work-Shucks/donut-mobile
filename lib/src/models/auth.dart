@@ -11,6 +11,8 @@ class Auth {
     this.password,
   );
 
+  //final response = http.get(/api/v1)
+
   factory Auth.fromJson(Map<String, dynamic> json) {
     return Auth(
       json['uid'],

@@ -37,7 +37,7 @@ class _DonatePage extends State<DonatePage> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const AddItemDonate()),
+            MaterialPageRoute(builder: (context) => AddItemDonate()),
           );
         },
         tooltip: 'Add item that you want to donate',

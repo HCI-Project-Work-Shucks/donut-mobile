@@ -13,6 +13,8 @@ class Address {
     this.postcode,
   );
 
+  //final data = http.get()
+
   factory Address.fromJson(Map<String, dynamic> json) {
     return Address(
       json['id'],
