@@ -15,6 +15,8 @@ class User {
     this.deleted,
   );
 
+  //final response = http.get(/api/v1/users)
+
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       json['id'],

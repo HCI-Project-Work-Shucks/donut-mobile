@@ -17,6 +17,8 @@ class Article {
     this.updated,
   );
 
+  //final response = http.get(Url)
+
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
       json['id'],

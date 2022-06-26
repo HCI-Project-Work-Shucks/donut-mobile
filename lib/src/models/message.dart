@@ -5,7 +5,15 @@ class Message {
   int image;
   DateTime updated;
 
-  Message(this.id, this.thread, this.message, this.image, this.updated);
+  Message(
+    this.id,
+    this.thread,
+    this.message,
+    this.image,
+    this.updated,
+  );
+
+  //final response = http.get(Url)
 
   factory Message.fromJson(Map<String, dynamic> json) {
     return Message(

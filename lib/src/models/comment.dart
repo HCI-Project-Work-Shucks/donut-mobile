@@ -19,6 +19,8 @@ class Comment {
     this.deleted,
   );
 
+  //final response = http.get(Url)
+
   factory Comment.fromJson(Map<String, dynamic> json) {
     return Comment(
       json['id'],

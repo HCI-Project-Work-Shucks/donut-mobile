@@ -1,15 +1,30 @@
 import 'package:donut/src/models/tests/message_test.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../../constants.dart';
+import 'dart:io';
 
-class ChatInputField extends StatelessWidget {
-  const ChatInputField({
-    Key? key,
-  }) : super(key: key);
-
+class ChatInputField extends StatefulWidget {
   @override
+  _ChatInputFieldState createState() => _ChatInputFieldState();
+}
+
+class _ChatInputFieldState extends State<ChatInputField> {
   Widget build(BuildContext context) {
+    File _image;
+
+    final imagePicker = ImagePicker();
+
+    Future getImage() async {
+      final image = await imagePicker.getImage(
+        source: ImageSource.camera,
+      );
+      setState(
+        () {},
+      );
+    }
+
     final TextEditingController controller = TextEditingController();
 
     return Container(
@@ -45,24 +60,25 @@ class ChatInputField extends StatelessWidget {
                         onSubmitted: (text) {
                           final message = ChatMessage(
                             text: text,
-                            messageStatus: MessageStatus.not_view,
                             isSender: true,
                           );
-                          setState(() => demeChatMessages.add(message));
+                          setState(() => Messages.add(message));
                           controller.text = "";
                         },
                         controller: controller,
                       ),
                     ),
                     const SizedBox(width: kDefaultPadding / 4),
-                    Icon(
-                      Icons.camera_alt_outlined,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyText1!
-                          .color!
-                          .withOpacity(0.64),
-                    ),
+                    ElevatedButton(
+                        onPressed: getImage,
+                        child: Icon(
+                          Icons.camera_alt_outlined,
+                          color: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .color!
+                              .withOpacity(0.64),
+                        )),
                   ],
                 ),
               ),
@@ -72,6 +88,4 @@ class ChatInputField extends StatelessWidget {
       ),
     );
   }
-
-  void setState(void Function() param0) {}
 }

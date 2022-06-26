@@ -1,185 +1,41 @@
 // ignore_for_file: file_names
 
 class Chat {
-  final String name, lastMessage, image, time;
-  final bool isActive;
+  final String name, image;
 
   Chat({
     this.name = '',
-    this.lastMessage = '',
     this.image = '',
-    this.time = '',
-    this.isActive = false,
   });
 }
 
 List chatsData = [
   Chat(
     name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
     image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
   ),
   Chat(
     name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
     image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
   ),
   Chat(
     name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
     image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
   ),
   Chat(
     name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
     image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
   ),
   Chat(
     name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
     image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
   ),
   Chat(
     name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
     image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
   ),
   Chat(
     name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
     image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
-  ),
-  Chat(
-    name: "Kristin Watson",
-    lastMessage: "Hope you are doing well...",
-    image: "assets/images/profile_pic.jpeg",
-    time: "3m ago",
-    isActive: false,
   ),
 ];

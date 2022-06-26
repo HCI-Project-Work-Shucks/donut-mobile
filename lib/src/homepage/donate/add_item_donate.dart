@@ -1,17 +1,39 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:donut/src/models/tests/donate_items.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 import 'package:donut/src/constants.dart';
 
-class AddItemDonate extends StatelessWidget {
+class AddItemDonate extends StatefulWidget {
   const AddItemDonate({Key? key}) : super(key: key);
 
   @override
+  _AddItemDonateState createState() => _AddItemDonateState();
+}
+
+class _AddItemDonateState extends State<AddItemDonate> {
+  @override
   Widget build(BuildContext context) {
+    const String username = 'Donut';
     String item = '';
     String description = '';
     String picture = '';
+
+    File _image;
+
+    final imagePicker = ImagePicker();
+
+    Future getImage() async {
+      final image = await imagePicker.getImage(
+        source: ImageSource.camera,
+      );
+      setState(
+        () {},
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -82,14 +104,18 @@ class AddItemDonate extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(10),
-              width: 10,
-              child: TextField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Type here',
+              alignment: Alignment.centerLeft,
+              height: 50,
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: FloatingActionButton(
+                backgroundColor: kPrimaryColor,
+                tooltip: 'Upload picture here',
+                onPressed: getImage,
+                child: const Icon(
+                  Icons.file_upload_outlined,
+                  color: Colors.white,
+                  size: 30.0,
                 ),
-                onSubmitted: ((text) => picture = text),
               ),
             ),
             Container(
@@ -101,7 +127,14 @@ class AddItemDonate extends StatelessWidget {
                 color: kPrimaryColor,
                 child: const Text('Submit'),
                 onPressed: () {
-                  setState(() {});
+                  final donateitem = DonateItmes(
+                    name: username,
+                    title: item,
+                    description: description,
+                    picture: picture,
+                    isSender: true,
+                  );
+                  setState(() => createItems.add(donateitem));
                   Navigator.pop(context);
                 },
               ),
@@ -111,6 +144,4 @@ class AddItemDonate extends StatelessWidget {
       ),
     );
   }
-
-  void setState(void Function() param0) {}
 }

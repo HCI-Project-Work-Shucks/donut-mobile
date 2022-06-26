@@ -11,6 +11,8 @@ class Thread {
     this.peer,
   );
 
+  //final response = http.get(Url)
+
   factory Thread.fromJson(Map<String, dynamic> json) {
     return Thread(
       json['id'],
