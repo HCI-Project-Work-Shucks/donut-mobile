@@ -22,7 +22,7 @@ class _AddItemDonateState extends State<AddItemDonate> {
     String description = '';
     String picture = '';
 
-    File _image;
+    File? _image;
 
     final imagePicker = ImagePicker();
 
@@ -31,9 +31,23 @@ class _AddItemDonateState extends State<AddItemDonate> {
         source: ImageSource.camera,
       );
       setState(
-        () {},
+        () {
+          _image = File(image!.path);
+          picture = image as String;
+        },
       );
     }
+
+    Widget button() => FloatingActionButton(
+          backgroundColor: kPrimaryColor,
+          tooltip: 'Upload picture here',
+          onPressed: getImage,
+          child: const Icon(
+            Icons.file_upload_outlined,
+            color: Colors.white,
+            size: 30.0,
+          ),
+        );
 
     return Scaffold(
       appBar: AppBar(
@@ -79,15 +93,11 @@ class _AddItemDonateState extends State<AddItemDonate> {
             ),
             Container(
               padding: const EdgeInsets.all(10),
+              width: 10,
               child: TextField(
-                keyboardType: TextInputType.multiline,
-                minLines: 1, //Normal textInputField will be displayed
-                maxLines: 5,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Type here',
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 50.0, horizontal: 10),
                 ),
                 onSubmitted: ((text) => description = text),
               ),
@@ -97,7 +107,7 @@ class _AddItemDonateState extends State<AddItemDonate> {
               padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.only(top: 20),
               child: const Text(
-                'Please provide a url to the picture of the item that you want',
+                'Please provide a picture of the item that you want',
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -107,16 +117,13 @@ class _AddItemDonateState extends State<AddItemDonate> {
               alignment: Alignment.centerLeft,
               height: 50,
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-              child: FloatingActionButton(
-                backgroundColor: kPrimaryColor,
-                tooltip: 'Upload picture here',
-                onPressed: getImage,
-                child: const Icon(
-                  Icons.file_upload_outlined,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
-              ),
+              child: _image == null
+                  ? button()
+                  : Image.file(
+                      _image!,
+                      width: 100,
+                      height: 100,
+                    ),
             ),
             Container(
               height: 50,
@@ -131,7 +138,7 @@ class _AddItemDonateState extends State<AddItemDonate> {
                     name: username,
                     title: item,
                     description: description,
-                    picture: picture,
+                    picture: 'assets/images/profile_pic.jpeg',
                     isSender: true,
                   );
                   setState(() => createItems.add(donateitem));

@@ -2,6 +2,7 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:html';
 
 import 'package:crypto/crypto.dart';
 import 'package:donut/src/authorization/login_page.dart';
@@ -23,6 +24,9 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  String email = '';
+  String password = '';
+  String username = '';
 
   final _emailRegExp = RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
@@ -69,13 +73,17 @@ class _SignUpPageState extends State<SignUpPage> {
             height: 10,
           ),
           TextFormField(
-              controller: controller,
-              validator: validator,
-              obscureText: isPassword,
-              decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  fillColor: Color(0xfff3f3f4),
-                  filled: true))
+            controller: controller,
+            validator: validator,
+            obscureText: isPassword,
+            decoration: const InputDecoration(
+                border: InputBorder.none,
+                fillColor: Color(0xfff3f3f4),
+                filled: true),
+            onFieldSubmitted: (text) {
+              if (isPassword == true) {}
+            },
+          )
         ],
       ),
     );
@@ -136,6 +144,12 @@ class _SignUpPageState extends State<SignUpPage> {
         } else {
           print("Fail!");
         }
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const LoginPage(),
+          ),
+        );
       },
       child: Container(
         width: MediaQuery.of(context).size.width,

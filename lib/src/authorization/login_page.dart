@@ -1,8 +1,7 @@
 import 'package:donut/src/authorization/signup_page.dart';
+import 'package:donut/src/models/tests/login.dart';
 import 'package:donut/src/homepage/home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/button_view.dart';
 
 import '../widgets/bezier_container.dart';
 
@@ -16,6 +15,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String password = '';
+  String email = '';
+  bool error = false;
+  int index = 0;
+
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -54,21 +58,38 @@ class _LoginPageState extends State<LoginPage> {
             height: 10,
           ),
           TextFormField(
-              controller: controller,
-              validator: validator,
-              obscureText: isPassword,
-              decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  fillColor: Color(0xfff3f3f4),
-                  filled: true))
+            controller: controller,
+            validator: validator,
+            obscureText: isPassword,
+            decoration: const InputDecoration(
+                border: InputBorder.none,
+                fillColor: Color(0xfff3f3f4),
+                filled: true),
+            onFieldSubmitted: (text) {
+              if (isPassword == false) {
+                email = text;
+              } else {
+                password = text;
+              }
+            },
+          ),
         ],
       ),
     );
   }
 
   Widget _submitButton() {
+    for (var items in users) {
+      if (items.emails == email) {
+        index = users.indexOf(items.emails);
+      } else {
+        index = -1;
+      }
+    }
     return InkWell(
       onTap: () {
+        print(email);
+        print(password);
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => const Home()));
       },
@@ -93,39 +114,6 @@ class _LoginPageState extends State<LoginPage> {
           'Login',
           style: TextStyle(fontSize: 20, color: Colors.white),
         ),
-      ),
-    );
-  }
-
-  Widget _divider() {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        children: const <Widget>[
-          SizedBox(
-            width: 20,
-          ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Divider(
-                thickness: 1,
-              ),
-            ),
-          ),
-          Text('or'),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Divider(
-                thickness: 1,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-        ],
       ),
     );
   }
@@ -214,14 +202,6 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w500)),
                   ),
-                  _divider(),
-                  SignInButton(
-                    Buttons.Google,
-                    onPressed: () {},
-                  ),
-                  SignInButton(Buttons.FacebookNew, onPressed: () {}),
-                  SignInButton(Buttons.Twitter, onPressed: () {}),
-                  SizedBox(height: height * .055),
                   _createAccountLabel(),
                 ],
               ),

@@ -6,6 +6,8 @@ import '../../../../../constants.dart';
 import 'dart:io';
 
 class ChatInputField extends StatefulWidget {
+  int index;
+  ChatInputField({Key? mykey, required this.index}) : super(key: mykey);
   @override
   _ChatInputFieldState createState() => _ChatInputFieldState();
 }
@@ -59,10 +61,11 @@ class _ChatInputFieldState extends State<ChatInputField> {
                         ),
                         onSubmitted: (text) {
                           final message = ChatMessage(
+                            id: widget.index,
                             text: text,
                             isSender: true,
                           );
-                          setState(() => Messages.add(message));
+                          setState(() => messages.add(message));
                           controller.text = "";
                         },
                         controller: controller,

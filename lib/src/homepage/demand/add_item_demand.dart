@@ -140,7 +140,7 @@ class _AddItemDemandState extends State<AddItemDemand> {
                     name: username,
                     title: item,
                     description: description,
-                    picture: _image as String,
+                    picture: 'assets/images/profile_pic.jpeg',
                     isSender: true,
                   );
                   setState(() => createItems.add(demanditem));

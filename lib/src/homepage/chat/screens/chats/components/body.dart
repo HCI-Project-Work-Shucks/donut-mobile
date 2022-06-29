@@ -16,12 +16,16 @@ class Body extends StatelessWidget {
             itemCount: chatsData.length,
             itemBuilder: (context, index) => ChatCard(
               chat: chatsData[index],
-              press: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MessagesScreen(),
-                ),
-              ),
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MessagesScreen(
+                      index: index,
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ),

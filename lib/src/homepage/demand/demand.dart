@@ -20,7 +20,7 @@ class _DemandPage extends State<DemandPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('donate page'),
+        title: const Text('demand page'),
         backgroundColor: kPrimaryColor,
       ),
       body: Column(
