@@ -2,13 +2,14 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:donut/src/models/tests/users.dart';
 import 'package:donut/src/homepage/chat/chat.dart';
 
 class NumbersWidget extends StatelessWidget {
-  const NumbersWidget({Key? key}) : super(key: key);
-  final value1 = 69;
-  final value2 = 69;
-  final value3 = 69;
+  int index;
+  NumbersWidget({Key? key, required this.index}) : super(key: key);
+  late int value1 = users[index].completedDeals;
+  late int value2 = users[index].pendingDeals;
 
   @override
   Widget build(BuildContext context) => Row(
@@ -16,9 +17,7 @@ class NumbersWidget extends StatelessWidget {
         children: <Widget>[
           buildButton(text: 'Completed', value: value1),
           buildDivider(),
-          buildButton(text: 'Uncompleted', value: value2),
-          buildDivider(),
-          buildButton(text: 'Pending', value: value3),
+          buildButton(text: 'Pending', value: value2),
         ],
       );
 

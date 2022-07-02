@@ -14,32 +14,17 @@ class Chat {
 List chatsData = [
   Chat(
     id: 1,
-    name: "mark",
+    name: "user_1",
     image: "assets/images/profile_pic.jpeg",
   ),
   Chat(
     id: 2,
-    name: "mock",
+    name: "user_2",
     image: "assets/images/profile_pic.jpeg",
   ),
   Chat(
     id: 3,
-    name: "cow",
-    image: "assets/images/profile_pic.jpeg",
-  ),
-  Chat(
-    id: 4,
-    name: "moo",
-    image: "assets/images/profile_pic.jpeg",
-  ),
-  Chat(
-    id: 5,
-    name: "donut",
-    image: "assets/images/profile_pic.jpeg",
-  ),
-  Chat(
-    id: 6,
-    name: "yeet",
+    name: "user_3",
     image: "assets/images/profile_pic.jpeg",
   ),
 ];

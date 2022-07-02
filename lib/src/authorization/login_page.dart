@@ -1,9 +1,9 @@
 import 'package:donut/src/authorization/signup_page.dart';
-import 'package:donut/src/models/tests/login.dart';
+import 'package:donut/src/models/tests/users.dart';
 import 'package:donut/src/homepage/home.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/bezier_container.dart';
+import '../widgets/bezier_container1.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, this.title}) : super(key: key);
@@ -79,19 +79,26 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _submitButton() {
-    for (var items in users) {
-      if (items.emails == email) {
-        index = users.indexOf(items.emails);
-      } else {
-        index = -1;
-      }
-    }
     return InkWell(
       onTap: () {
-        print(email);
-        print(password);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Home()));
+        for (var items in users) {
+          if (items.emails == email) {
+            break;
+          }
+          index++;
+        }
+        if (index < 0 || users[index].password != password) {
+          index = 0;
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Home(
+                pos: index,
+              ),
+            ),
+          );
+        }
       },
       child: Container(
         width: MediaQuery.of(context).size.width,

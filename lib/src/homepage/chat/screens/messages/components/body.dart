@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 
 import 'chat_input_field.dart';
 import 'message.dart';
-import 'package:donut/src/models/tests/chat.dart';
 
+// ignore: must_be_immutable
 class Body extends StatelessWidget {
   int index;
 
-  Body({required this.index});
+  Body({Key? key, required this.index}) : super(key: key);
 
   int count = 0;
+  // ignore: non_constant_identifier_names
   List Temp = [];
 
+  // ignore: non_constant_identifier_names
   void count_items() {
     for (var item in messages) {
       if (item.id == index) {

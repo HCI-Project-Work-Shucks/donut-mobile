@@ -4,8 +4,13 @@ import 'package:donut/src/models/tests/donate_items.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
-
+import 'package:intl/intl.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:crypto/crypto.dart';
 import 'package:donut/src/constants.dart';
+import 'package:donut/src/models/donation.dart';
 
 class AddItemDonate extends StatefulWidget {
   const AddItemDonate({Key? key}) : super(key: key);
@@ -134,12 +139,16 @@ class _AddItemDonateState extends State<AddItemDonate> {
                 color: kPrimaryColor,
                 child: const Text('Submit'),
                 onPressed: () {
+                  var now = DateTime.now();
+                  var formatter = DateFormat('yyyy-MM-dd');
+                  String formattedDate = formatter.format(now);
                   final donateitem = DonateItmes(
                     name: username,
                     title: item,
                     description: description,
                     picture: 'assets/images/profile_pic.jpeg',
                     isSender: true,
+                    time: formattedDate,
                   );
                   setState(() => createItems.add(donateitem));
                   Navigator.pop(context);

@@ -51,13 +51,24 @@ class _DonateItemWidgetState extends State<DonateItemWidget> {
                     'Item needed: ' + widget.item.title,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.bold),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
                     'Description: ' + widget.item.description,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.bold),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'time: ' + widget.item.time,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 10,
+                    ),
                   ),
                   RaisedButton(
                     textColor: Colors.white,
@@ -98,6 +109,13 @@ class _DonateItemWidgetState extends State<DonateItemWidget> {
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'time: ' + widget.item.time,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 10,
+                    ),
                   ),
                 ],
               ],

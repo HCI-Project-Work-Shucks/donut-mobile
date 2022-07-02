@@ -2,14 +2,12 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:html';
-
+import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:donut/src/authorization/login_page.dart';
 import 'package:donut/src/models/user.dart';
-import 'package:donut/src/widgets/bezier_container.dart';
+import 'package:donut/src/widgets/bezier_container1.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key, this.title}) : super(key: key);
@@ -80,9 +78,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 border: InputBorder.none,
                 fillColor: Color(0xfff3f3f4),
                 filled: true),
-            onFieldSubmitted: (text) {
-              if (isPassword == true) {}
-            },
           )
         ],
       ),

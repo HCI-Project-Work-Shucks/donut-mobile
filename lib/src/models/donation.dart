@@ -1,31 +1,31 @@
-import 'dart:html';
-
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 
-class Donation {
+class Donate {
   int id;
   int creator;
+  String description;
   int item;
   bool closed;
   DateTime updated;
   bool deleted;
 
-  Donation(
+  Donate(
     this.id,
     this.creator,
+    this.description,
     this.item,
     this.closed,
     this.updated,
     this.deleted,
   );
 
-  //final response = http.get(/api/v1/donates)
+  //final response = http.get('/api/v1/donates')
 
-  factory Donation.fromJson(Map<String, dynamic> json) {
-    return Donation(
+  factory Donate.fromJson(Map<String, dynamic> json) {
+    return Donate(
       json['id'],
       json['creator'],
+      json['description'],
       json['item'],
       json['closed'],
       json['updated'],

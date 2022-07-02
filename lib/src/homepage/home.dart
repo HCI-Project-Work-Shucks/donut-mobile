@@ -9,20 +9,26 @@ import 'package:donut/src/homepage/profile/profile.dart';
 import 'package:donut/src/homepage/chat/chat.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
+  int pos;
+  Home({Key? mykey, required this.pos}) : super(key: mykey);
   @override
-  _Home createState() => _Home();
+  _HomeState createState() => _HomeState();
 }
 
-class _Home extends State<Home> {
+class _HomeState extends State<Home> {
+  late int pos = widget.pos;
+
   var _currentIndex = 1;
-  final List<Widget> _children = [
-    const DonatePage(),
-    const ProfileMain(),
-    const DemandPage(),
-    const Chat(),
-  ];
+  late List<Widget> _children;
+  void initState() {
+    super.initState();
+    _children = <Widget>[
+      const DonatePage(),
+      ProfileMain(index: pos),
+      const DemandPage(),
+      const Chat(),
+    ];
+  }
 
   void onTappedBar(int index) {
     setState(() {
@@ -64,4 +70,10 @@ class _Home extends State<Home> {
       ),
     );
   }
+}
+
+@override
+Widget build(BuildContext context) {
+  // TODO: implement build
+  throw UnimplementedError();
 }

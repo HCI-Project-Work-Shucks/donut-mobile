@@ -58,6 +58,13 @@ class _DemandItemWidgetState extends State<DemandItemWidget> {
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.bold),
                   ),
+                  Text(
+                    'time: ' + widget.item.time,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
                   RaisedButton(
                     textColor: Colors.white,
                     color: kPrimaryColor,
@@ -98,6 +105,13 @@ class _DemandItemWidgetState extends State<DemandItemWidget> {
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'time: ' + widget.item.time,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 10,
+                    ),
                   ),
                 ],
               ],

@@ -21,6 +21,7 @@ class _DonatePage extends State<DonatePage> {
       appBar: AppBar(
         title: const Text('donate page'),
         backgroundColor: kPrimaryColor,
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: [

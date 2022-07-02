@@ -1,5 +1,5 @@
 class DemandItems {
-  final String name, title, description, picture;
+  final String name, title, description, picture, time;
   final bool isSender;
 
   DemandItems({
@@ -8,6 +8,7 @@ class DemandItems {
     this.description = '',
     this.picture = '',
     this.isSender = false,
+    this.time = '',
   });
 }
 
