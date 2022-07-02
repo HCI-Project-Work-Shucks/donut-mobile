@@ -5,24 +5,45 @@ import 'package:flutter/material.dart';
 import 'chat_input_field.dart';
 import 'message.dart';
 
+// ignore: must_be_immutable
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  int index;
+
+  Body({Key? key, required this.index}) : super(key: key);
+
+  int count = 0;
+  // ignore: non_constant_identifier_names
+  List Temp = [];
+
+  // ignore: non_constant_identifier_names
+  void count_items() {
+    for (var item in messages) {
+      if (item.id == index) {
+        count++;
+        Temp.add(item);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    count_items();
     return Column(
       children: [
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
             child: ListView.builder(
-              itemCount: Messages.length,
-              itemBuilder: (context, index) =>
-                  Message(message: Messages[index]),
+              itemCount: count,
+              itemBuilder: (context, index) => Message(
+                message: Temp[index],
+              ),
             ),
           ),
         ),
-        ChatInputField(),
+        ChatInputField(
+          index: index,
+        ),
       ],
     );
   }

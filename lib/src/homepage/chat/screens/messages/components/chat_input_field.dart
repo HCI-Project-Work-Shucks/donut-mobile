@@ -5,12 +5,18 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../../constants.dart';
 import 'dart:io';
 
+// ignore: must_be_immutable
 class ChatInputField extends StatefulWidget {
+  int index;
+  ChatInputField({Key? mykey, required this.index}) : super(key: mykey);
   @override
   _ChatInputFieldState createState() => _ChatInputFieldState();
 }
 
 class _ChatInputFieldState extends State<ChatInputField> {
+  final FocusNode node = FocusNode();
+
+  @override
   Widget build(BuildContext context) {
     File _image;
 
@@ -53,16 +59,18 @@ class _ChatInputFieldState extends State<ChatInputField> {
                     const SizedBox(width: kDefaultPadding / 4),
                     Expanded(
                       child: TextField(
+                        focusNode: node,
                         decoration: const InputDecoration(
                           hintText: "Type message",
                           border: InputBorder.none,
                         ),
                         onSubmitted: (text) {
                           final message = ChatMessage(
+                            id: widget.index,
                             text: text,
                             isSender: true,
                           );
-                          setState(() => Messages.add(message));
+                          setState(() => messages.add(message));
                           controller.text = "";
                         },
                         controller: controller,
@@ -70,15 +78,16 @@ class _ChatInputFieldState extends State<ChatInputField> {
                     ),
                     const SizedBox(width: kDefaultPadding / 4),
                     ElevatedButton(
-                        onPressed: getImage,
-                        child: Icon(
-                          Icons.camera_alt_outlined,
-                          color: Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .color!
-                              .withOpacity(0.64),
-                        )),
+                      onPressed: getImage,
+                      child: Icon(
+                        Icons.camera_alt_outlined,
+                        color: Theme.of(context)
+                            .textTheme
+                            .bodyText1!
+                            .color!
+                            .withOpacity(0.64),
+                      ),
+                    ),
                   ],
                 ),
               ),

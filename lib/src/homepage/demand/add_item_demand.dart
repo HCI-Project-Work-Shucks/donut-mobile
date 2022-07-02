@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:donut/src/models/tests/demand_items.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 
 import 'package:donut/src/constants.dart';
 
@@ -136,12 +137,16 @@ class _AddItemDemandState extends State<AddItemDemand> {
                 color: kPrimaryColor,
                 child: const Text('Submit'),
                 onPressed: () {
+                  var now = DateTime.now();
+                  var formatter = DateFormat('yyyy-MM-dd');
+                  String formattedDate = formatter.format(now);
                   final demanditem = DemandItems(
                     name: username,
                     title: item,
                     description: description,
-                    picture: _image as String,
+                    picture: 'assets/images/profile_pic.jpeg',
                     isSender: true,
+                    time: formattedDate,
                   );
                   setState(() => createItems.add(demanditem));
                   Navigator.pop(context);

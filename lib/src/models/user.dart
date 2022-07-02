@@ -1,41 +1,46 @@
 class User {
-  int id;
-  String name;
-  String phone;
-  String email;
-  bool verified;
-  bool deleted;
+  int uid, phone, completedDeals, pendingDeals;
+  String name, email, password, about, profilePic;
 
   User(
-    this.id,
+    this.uid,
     this.name,
     this.phone,
     this.email,
-    this.verified,
-    this.deleted,
+    this.password,
+    this.completedDeals,
+    this.pendingDeals,
+    this.about,
+    this.profilePic,
   );
 
   //final response = http.get(/api/v1/users)
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      json['id'],
+      json['uid'],
       json['name'],
       json['phone'],
       json['email'],
-      json['verified'],
-      json['deleted'],
+      json['password'],
+      json['completedDeals'],
+      json['pendingDeals'],
+      json['about'],
+      json['profilePic'],
     );
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
+    data['uid'] = uid;
     data['name'] = name;
     data['phone'] = phone;
     data['email'] = email;
-    data['verified'] = verified;
-    data['deleted'] = deleted;
+    data['password'] = password;
+    data['completedDeals'] = completedDeals;
+    data['pendingDeals'] = pendingDeals;
+    data['about'] = about;
+    data['profilePic'] = profilePic;
     return data;
   }
 }

@@ -2,15 +2,19 @@ import 'package:donut/src/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'components/body.dart';
+import 'package:donut/src/models/tests/chat.dart';
 
 class MessagesScreen extends StatelessWidget {
-  const MessagesScreen({Key? key}) : super(key: key);
+  int index;
 
+  MessagesScreen({required this.index});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: const Body(),
+      body: Body(
+        index: index,
+      ),
     );
   }
 
@@ -26,15 +30,11 @@ class MessagesScreen extends StatelessWidget {
           const SizedBox(width: kDefaultPadding * 0.75),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                "Kristin Watson",
-                style: TextStyle(fontSize: 16),
+                chatsData[index].name,
+                style: const TextStyle(fontSize: 16),
               ),
-              Text(
-                "Active 3m ago",
-                style: TextStyle(fontSize: 12),
-              )
             ],
           )
         ],

@@ -1,8 +1,8 @@
 class Thread {
   int id;
-  int fulfilment;
+  int fulfilment; //id
   int initiator;
-  int peer;
+  int peer; //id
 
   Thread(
     this.id,

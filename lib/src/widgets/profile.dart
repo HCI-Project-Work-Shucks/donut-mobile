@@ -11,25 +11,12 @@ class ProfileMain extends StatefulWidget {
 }
 
 class _ProfileMainState extends State<ProfileMain> {
-  late FocusNode _focusNode;
   final double coverHeight = 200;
   final double profileHeight = 144;
   final profileCover = 'assets/images/profile_bg.jpeg';
-  late String profileImage = users[widget.index].profilePic;
+  final profileImage = 'assets/images/profile_pic.jpeg';
   late String username = users[widget.index].name;
   late String description = users[widget.index].about;
-
-  @override
-  void initState() {
-    super.initState();
-    _focusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _focusNode.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,22 +77,9 @@ class _ProfileMainState extends State<ProfileMain> {
             style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: TextFormField(
-              initialValue: description,
-              keyboardType: TextInputType.multiline,
-              maxLines: null,
-              focusNode: _focusNode,
-              autofocus: false,
-              textInputAction: TextInputAction.done,
-              decoration: const InputDecoration(border: InputBorder.none),
-              textAlign: TextAlign.center,
-              onFieldSubmitted: (text) {
-                users[widget.index].about = text;
-                _focusNode.unfocus();
-              },
-            ),
+          Text(
+            description,
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
           const Divider(

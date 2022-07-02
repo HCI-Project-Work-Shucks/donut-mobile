@@ -2,40 +2,29 @@
 
 class Chat {
   final String name, image;
+  final int id;
 
   Chat({
     this.name = '',
     this.image = '',
+    this.id = 0,
   });
 }
 
 List chatsData = [
   Chat(
-    name: "Kristin Watson",
+    id: 1,
+    name: "user_1",
     image: "assets/images/profile_pic.jpeg",
   ),
   Chat(
-    name: "Kristin Watson",
+    id: 2,
+    name: "user_2",
     image: "assets/images/profile_pic.jpeg",
   ),
   Chat(
-    name: "Kristin Watson",
-    image: "assets/images/profile_pic.jpeg",
-  ),
-  Chat(
-    name: "Kristin Watson",
-    image: "assets/images/profile_pic.jpeg",
-  ),
-  Chat(
-    name: "Kristin Watson",
-    image: "assets/images/profile_pic.jpeg",
-  ),
-  Chat(
-    name: "Kristin Watson",
-    image: "assets/images/profile_pic.jpeg",
-  ),
-  Chat(
-    name: "Kristin Watson",
+    id: 3,
+    name: "user_3",
     image: "assets/images/profile_pic.jpeg",
   ),
 ];

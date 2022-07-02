@@ -1,16 +1,22 @@
 import 'package:donut/src/models/tests/donate_items.dart';
 import 'package:flutter/material.dart';
 
+import 'package:donut/src/models/tests/chat.dart';
+import 'package:donut/src/models/tests/message_test.dart';
+
 import 'package:donut/src/constants.dart';
 
-class DonateItemWidget extends StatelessWidget {
-  const DonateItemWidget({
-    Key? key,
-    required this.item,
-  }) : super(key: key);
-
+class DonateItemWidget extends StatefulWidget {
   final DonateItmes item;
+  const DonateItemWidget({
+    Key? mykey,
+    required this.item,
+  }) : super(key: mykey);
+  @override
+  _DonateItemWidgetState createState() => _DonateItemWidgetState();
+}
 
+class _DonateItemWidgetState extends State<DonateItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,11 +26,11 @@ class DonateItemWidget extends StatelessWidget {
         children: [
           Expanded(
             child: Column(
-              crossAxisAlignment: item.isSender
+              crossAxisAlignment: widget.item.isSender
                   ? CrossAxisAlignment.end
                   : CrossAxisAlignment.start,
               children: [
-                if (!item.isSender) ...[
+                if (!widget.item.isSender) ...[
                   Row(
                     children: [
                       const CircleAvatar(
@@ -32,52 +38,84 @@ class DonateItemWidget extends StatelessWidget {
                         backgroundImage:
                             AssetImage("assets/images/profile_pic.jpeg"),
                       ),
-                      Text(item.name)
+                      Text(widget.item.name)
                     ],
                   ),
                   const SizedBox(width: kDefaultPadding / 2),
                   Image.asset(
-                    item.picture,
+                    widget.item.picture,
                     height: 200,
                     width: 200,
                   ),
                   Text(
-                    'Item needed: ' + item.title,
+                    'Item needed: ' + widget.item.title,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.bold),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
-                    'Description: ' + item.description,
+                    'Description: ' + widget.item.description,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.bold),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'time: ' + widget.item.time,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 10,
+                    ),
                   ),
                   RaisedButton(
                     textColor: Colors.white,
                     color: kPrimaryColor,
                     child: const Text('Intereseted'),
-                    onPressed: () {},
+                    onPressed: () {
+                      final newChat = Chat(
+                        id: chatsData.last.id + 1,
+                        name: widget.item.name,
+                        image: 'assets/images/profile_pic.jpeg',
+                      );
+                      final newMessage = ChatMessage(
+                          id: chatsData.last.id,
+                          text: 'Hello, I can provide what you need',
+                          isSender: true);
+                      setState(() {
+                        chatsData.add(newChat);
+                        messages.add(newMessage);
+                      });
+                    },
                   ),
                 ],
-                if (item.isSender) ...[
+                if (widget.item.isSender) ...[
                   const SizedBox(width: kDefaultPadding / 2),
                   Image.asset(
-                    item.picture,
+                    widget.item.picture,
                     height: 200,
                     width: 200,
                   ),
                   Text(
-                    'Item needed: ' + item.title,
+                    'Item needed: ' + widget.item.title,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Description: ' + item.description,
+                    'Description: ' + widget.item.description,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'time: ' + widget.item.time,
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 10,
+                    ),
                   ),
                 ],
               ],
