@@ -1,6 +1,7 @@
 class DemandItems {
   final String name, title, description, picture, time;
   final bool isSender;
+  bool isPending;
 
   DemandItems({
     this.name = '',
@@ -8,6 +9,7 @@ class DemandItems {
     this.description = '',
     this.picture = '',
     this.isSender = false,
+    this.isPending = false,
     this.time = '',
   });
 }

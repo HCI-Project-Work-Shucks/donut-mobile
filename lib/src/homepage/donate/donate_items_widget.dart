@@ -75,6 +75,7 @@ class _DonateItemWidgetState extends State<DonateItemWidget> {
                     color: kPrimaryColor,
                     child: const Text('Intereseted'),
                     onPressed: () {
+                      widget.item.isPending = false;
                       final newChat = Chat(
                         id: chatsData.last.id + 1,
                         name: widget.item.name,

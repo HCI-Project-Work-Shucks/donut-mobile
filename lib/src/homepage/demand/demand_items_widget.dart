@@ -70,6 +70,7 @@ class _DemandItemWidgetState extends State<DemandItemWidget> {
                     color: kPrimaryColor,
                     child: const Text('Intereseted'),
                     onPressed: () {
+                      widget.item.isPending = false;
                       final newChat = Chat(
                         id: chatsData.last.id + 1,
                         name: widget.item.name,
