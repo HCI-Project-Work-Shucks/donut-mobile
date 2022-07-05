@@ -3,11 +3,13 @@
 class Chat {
   final String name, image;
   final int id;
+  final bool isClosed;
 
   Chat({
     this.name = '',
     this.image = '',
     this.id = 0,
+    this.isClosed = false,
   });
 }
 

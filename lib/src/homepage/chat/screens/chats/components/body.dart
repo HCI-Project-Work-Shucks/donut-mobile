@@ -5,17 +5,27 @@ import 'package:flutter/material.dart';
 import 'chat_card.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  int count = 0;
+  List Temp = [];
 
-  @override
+  void count_items() {
+    for (var item in chatsData) {
+      if (item.isClosed == false) {
+        count++;
+        Temp.add(item);
+      }
+    }
+  }
+
   Widget build(BuildContext context) {
+    count_items();
     return Column(
       children: [
         Expanded(
           child: ListView.builder(
             itemCount: chatsData.length,
             itemBuilder: (context, index) => ChatCard(
-              chat: chatsData[index],
+              chat: Temp[index],
               press: () {
                 Navigator.push(
                   context,

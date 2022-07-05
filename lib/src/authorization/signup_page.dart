@@ -108,24 +108,24 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Future<User> _register(String username, String email, String password) async {
-    final response = await http.post(
-      Uri.parse(""),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(<String, String>{
-        'username': username,
-        'email': email,
-        'password': md5.convert(utf8.encode(password)).toString()
-      }),
-    );
-    if (response.statusCode == 201) {
-      return User.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception("Failed to create user");
-    }
-  }
+  // Future<User> _register(String username, String email, String password) async {
+  //   final response = await http.post(
+  //     Uri.parse(""),
+  //     headers: <String, String>{
+  //       'Content-Type': 'application/json; charset=UTF-8',
+  //     },
+  //     body: jsonEncode(<String, String>{
+  //       'username': username,
+  //       'email': email,
+  //       'password': md5.convert(utf8.encode(password)).toString()
+  //     }),
+  //   );
+  //   if (response.statusCode == 201) {
+  //     return User.fromJson(jsonDecode(response.body));
+  //   } else {
+  //     throw Exception("Failed to create user");
+  //   }
+  // }
 
   Widget _submitButton() {
     return InkWell(
@@ -133,12 +133,17 @@ class _SignUpPageState extends State<SignUpPage> {
         // ignore: avoid_print
         print(
             "Registered with Username: ${usernameController.text}, Email: ${emailController.text}, Password: ${passwordController.text}");
+
+        //_register(usernameController.text, emailController.text,
+        //    passwordController.text);
+
         if (_formKey.currentState!.validate()) {
           _formKey.currentState!.save();
           print("Success!");
         } else {
           print("Fail!");
         }
+        
         Navigator.push(
           context,
           MaterialPageRoute(

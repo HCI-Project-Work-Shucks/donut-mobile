@@ -202,13 +202,6 @@ class _LoginPageState extends State<LoginPage> {
                   _emailPasswordWidget(),
                   const SizedBox(height: 20),
                   _submitButton(),
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    alignment: Alignment.centerRight,
-                    child: const Text('Forgot Password ?',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w500)),
-                  ),
                   _createAccountLabel(),
                 ],
               ),

@@ -1,13 +1,14 @@
 class DonateItmes {
   final String name, title, description, picture, time;
   final bool isSender;
-
+  bool isPending;
   DonateItmes({
     this.name = '',
     this.title = '',
     this.description = '',
     this.picture = '',
     this.isSender = false,
+    this.isPending = false,
     this.time = '',
   });
 }
