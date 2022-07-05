@@ -22,6 +22,9 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  String email = '';
+  String password = '';
+  String username = '';
 
   final _emailRegExp = RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
@@ -130,8 +133,17 @@ class _SignUpPageState extends State<SignUpPage> {
         // ignore: avoid_print
         print(
             "Registered with Username: ${usernameController.text}, Email: ${emailController.text}, Password: ${passwordController.text}");
+
         //_register(usernameController.text, emailController.text,
         //    passwordController.text);
+
+        if (_formKey.currentState!.validate()) {
+          _formKey.currentState!.save();
+          print("Success!");
+        } else {
+          print("Fail!");
+        }
+        
         Navigator.push(
           context,
           MaterialPageRoute(
