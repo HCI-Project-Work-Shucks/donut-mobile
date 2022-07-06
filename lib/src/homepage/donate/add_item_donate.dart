@@ -1,14 +1,16 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:donut/src/models/tests/donate_items.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:intl/intl.dart';
 import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:crypto/crypto.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:donut/src/constants.dart';
 import 'package:donut/src/models/donation.dart';
 
@@ -20,6 +22,8 @@ class AddItemDonate extends StatefulWidget {
 }
 
 class _AddItemDonateState extends State<AddItemDonate> {
+  File? image;
+
   @override
   Widget build(BuildContext context) {
     const String username = 'Donut';
@@ -27,26 +31,27 @@ class _AddItemDonateState extends State<AddItemDonate> {
     String description = '';
     String picture = '';
 
-    File? _image;
+    Future pickImage(ImageSource source) async {
+      try {
+        final image = await ImagePicker().pickImage(source: source);
+        if (image == null) return;
 
-    final imagePicker = ImagePicker();
-
-    Future getImage() async {
-      final image = await imagePicker.getImage(
-        source: ImageSource.camera,
-      );
-      setState(
-        () {
-          _image = File(image!.path);
-          picture = image as String;
-        },
-      );
+        final imageTemporary = File(image.path);
+        setState(() {
+          picture = image.path;
+          this.image = imageTemporary;
+        });
+      } on PlatformException catch (e) {
+        print('Failed to pick image: $e');
+      }
     }
 
-    Widget button() => FloatingActionButton(
+    Widget uploadButton() => FloatingActionButton(
           backgroundColor: kPrimaryColor,
           tooltip: 'Upload picture here',
-          onPressed: getImage,
+          onPressed: () {
+            pickImage(ImageSource.camera);
+          },
           child: const Icon(
             Icons.file_upload_outlined,
             color: Colors.white,
@@ -120,14 +125,13 @@ class _AddItemDonateState extends State<AddItemDonate> {
             ),
             Container(
               alignment: Alignment.centerLeft,
-              height: 50,
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-              child: _image == null
-                  ? button()
+              child: image == null
+                  ? uploadButton()
                   : Image.file(
-                      _image!,
-                      width: 100,
-                      height: 100,
+                      image!,
+                      width: 500,
+                      height: 300,
                     ),
             ),
             Container(
@@ -146,7 +150,7 @@ class _AddItemDonateState extends State<AddItemDonate> {
                     name: username,
                     title: item,
                     description: description,
-                    picture: 'assets/images/profile_pic.jpeg',
+                    picture: picture,
                     isSender: true,
                     time: formattedDate,
                   );

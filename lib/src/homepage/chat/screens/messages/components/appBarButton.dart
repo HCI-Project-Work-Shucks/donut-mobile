@@ -1,4 +1,8 @@
 // ignore: file_names
+import 'package:donut/src/models/tests/chat.dart';
+import 'package:flutter/material.dart';
+import 'package:donut/src/homepage/chat/screens/chats/chats_screen.dart';
+import 'package:donut/src/models/tests/users.dart';
 import 'package:flutter/material.dart';
 import 'package:donut/src/homepage/chat/screens/chats/chats_screen.dart';
 import 'package:donut/src/models/tests/chat.dart';
@@ -18,7 +22,14 @@ class _ButtonState extends State<Button> {
     return IconButton(
       icon: const Icon(Icons.done),
       onPressed: () {
-        chatsData[widget.index].isClosed = true;
+        if (users[widget.index].pendingDeals != 0) {
+          users[widget.index].pendingDeals--;
+          print(users[widget.index].pendingDeals);
+          print('yeet');
+        } else {
+          print('error below 0');
+        }
+        users[widget.index].completedDeals++;
         Navigator.push(
           context,
           MaterialPageRoute(

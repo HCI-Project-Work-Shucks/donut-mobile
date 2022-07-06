@@ -22,6 +22,18 @@ class _DonatePage extends State<DonatePage> {
         title: const Text('donate page'),
         backgroundColor: kPrimaryColor,
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddItemDonate()),
+              );
+            },
+            tooltip: 'Add item that you want to donate',
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -33,17 +45,6 @@ class _DonatePage extends State<DonatePage> {
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => AddItemDonate()),
-          );
-        },
-        tooltip: 'Add item that you want to donate',
-        child: const Icon(Icons.add),
-        backgroundColor: kPrimaryColor,
       ),
     );
   }

@@ -28,6 +28,7 @@ List createItems = [
     description: "I want donut",
     picture: 'assets/images/profile_pic.jpeg',
     time: '2019-01-22',
+    isPending: true,
   ),
   DonateItmes(
     name: 'Need a donut',

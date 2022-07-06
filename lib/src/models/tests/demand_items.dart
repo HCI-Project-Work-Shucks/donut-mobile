@@ -20,6 +20,7 @@ List createItems = [
     title: 'Donut',
     description: "I have too much donut i need give away some",
     picture: 'assets/images/profile_pic.jpeg',
+    isPending: true,
   ),
   DemandItems(
     name: 'I donut give',

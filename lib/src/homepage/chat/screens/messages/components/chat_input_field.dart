@@ -1,5 +1,6 @@
 import 'package:donut/src/models/tests/message_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../../constants.dart';
@@ -15,21 +16,44 @@ class ChatInputField extends StatefulWidget {
 
 class _ChatInputFieldState extends State<ChatInputField> {
   final FocusNode node = FocusNode();
+  File? image;
 
   @override
   Widget build(BuildContext context) {
-    File _image;
-
     final imagePicker = ImagePicker();
+    String picture = '';
 
-    Future getImage() async {
-      final image = await imagePicker.getImage(
-        source: ImageSource.camera,
-      );
-      setState(
-        () {},
-      );
+    Future pickImage(ImageSource source) async {
+      try {
+        final image = await ImagePicker().pickImage(source: source);
+        if (image == null) return;
+
+        final imageTemporary = File(image.path);
+        setState(() {
+          this.image = imageTemporary;
+          picture = image.path;
+        });
+      } on PlatformException catch (e) {
+        print('Failed to pick image: $e');
+      }
     }
+
+    Widget uploadButton() => ElevatedButton(
+          onPressed: () {
+            pickImage(ImageSource.camera);
+            final message = ChatMessage(
+              id: widget.index,
+              text: picture,
+              isSender: true,
+            );
+            setState(() => messages.add(message));
+          },
+          child: Icon(
+            Icons.camera_alt_outlined,
+            color:
+                Theme.of(context).textTheme.bodyText1!.color!.withOpacity(0.64),
+          ),
+        );
 
     final TextEditingController controller = TextEditingController();
 
@@ -77,17 +101,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
                       ),
                     ),
                     const SizedBox(width: kDefaultPadding / 4),
-                    ElevatedButton(
-                      onPressed: getImage,
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        color: Theme.of(context)
-                            .textTheme
-                            .bodyText1!
-                            .color!
-                            .withOpacity(0.64),
-                      ),
-                    ),
+                    uploadButton()
                   ],
                 ),
               ),
