@@ -2,6 +2,11 @@ import 'package:donut/src/widgets/numbers_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:donut/src/constants.dart';
 import 'package:donut/src/models/tests/users.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 
 class ProfileMain extends StatefulWidget {
   int index;
@@ -18,6 +23,33 @@ class _ProfileMainState extends State<ProfileMain> {
   late String profileImage = users[widget.index].profilePic;
   late String username = users[widget.index].name;
   late String description = users[widget.index].about;
+  File? image;
+
+  Future pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+
+      final imageTemporary = File(image.path);
+      final imagePermanent = await saveImagePermanentaly(image.path);
+      setState(() {
+        // ignore: unnecessary_null_comparison
+        imagePermanent != null ? profileImage = imagePermanent : null;
+        this.image = imageTemporary;
+      });
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+  Future<String> saveImagePermanentaly(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name = basename(imagePath);
+    final image = File('${directory.path}/$name');
+    String newimage = image.path;
+
+    return newimage;
+  }
 
   @override
   void initState() {
@@ -73,13 +105,22 @@ class _ProfileMainState extends State<ProfileMain> {
         ),
       );
 
-  Widget buildProfileImage() => ClipOval(
-        child: Image.asset(
-          profileImage,
-          fit: BoxFit.cover,
-          width: 140.0,
-          height: 140.0,
-        ),
+  Widget buildProfileImage() => InkWell(
+        child: image != null
+            ? Image.file(
+                image!,
+                width: 140.0,
+                height: 140.0,
+              )
+            : Image.asset(
+                profileImage,
+                fit: BoxFit.cover,
+                width: 140.0,
+                height: 140.0,
+              ),
+        onTap: () {
+          pickImage(ImageSource.gallery);
+        },
       );
 
   Widget buildContent() => Column(

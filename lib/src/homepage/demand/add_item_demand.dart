@@ -2,6 +2,7 @@
 import 'dart:io';
 import 'package:donut/src/models/tests/demand_items.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
@@ -15,32 +16,35 @@ class AddItemDemand extends StatefulWidget {
 }
 
 class _AddItemDemandState extends State<AddItemDemand> {
+  File? image;
   @override
   Widget build(BuildContext context) {
     const String username = 'Donut';
     String item = '';
     String description = '';
     String picture = '';
-    File? _image;
 
-    final imagePicker = ImagePicker();
+    Future pickImage(ImageSource source) async {
+      try {
+        final image = await ImagePicker().pickImage(source: source);
+        if (image == null) return;
 
-    Future getImage() async {
-      final image = await imagePicker.getImage(
-        source: ImageSource.camera,
-      );
-      setState(
-        () {
-          _image = File(image!.path);
-          picture = image as String;
-        },
-      );
+        final imageTemporary = File(image.path);
+        setState(() {
+          this.image = imageTemporary;
+          picture = image.path;
+        });
+      } on PlatformException catch (e) {
+        print('Failed to pick image: $e');
+      }
     }
 
-    Widget button() => FloatingActionButton(
+    Widget uploadButton() => FloatingActionButton(
           backgroundColor: kPrimaryColor,
           tooltip: 'Upload picture here',
-          onPressed: getImage,
+          onPressed: () {
+            pickImage(ImageSource.camera);
+          },
           child: const Icon(
             Icons.file_upload_outlined,
             color: Colors.white,
@@ -118,14 +122,13 @@ class _AddItemDemandState extends State<AddItemDemand> {
             ),
             Container(
               alignment: Alignment.centerLeft,
-              height: 50,
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-              child: _image == null
-                  ? button()
+              child: image == null
+                  ? uploadButton()
                   : Image.file(
-                      _image!,
-                      width: 100,
-                      height: 100,
+                      image!,
+                      width: 500,
+                      height: 300,
                     ),
             ),
             Container(
@@ -144,7 +147,7 @@ class _AddItemDemandState extends State<AddItemDemand> {
                     name: username,
                     title: item,
                     description: description,
-                    picture: 'assets/images/profile_pic.jpeg',
+                    picture: picture,
                     isSender: true,
                     time: formattedDate,
                   );

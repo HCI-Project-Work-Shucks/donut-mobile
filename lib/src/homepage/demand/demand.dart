@@ -23,6 +23,18 @@ class _DemandPage extends State<DemandPage> {
         automaticallyImplyLeading: false,
         title: const Text('demand page'),
         backgroundColor: kPrimaryColor,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddItemDemand()),
+              );
+            },
+            tooltip: 'Add item that you want to donate',
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -34,17 +46,6 @@ class _DemandPage extends State<DemandPage> {
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AddItemDemand()),
-          );
-        },
-        tooltip: 'Add item that you want to donate',
-        child: const Icon(Icons.add),
-        backgroundColor: kPrimaryColor,
       ),
     );
   }
