@@ -2,6 +2,7 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'package:donut/src/homepage/chat/screens/chats/components/body.dart';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:donut/src/authorization/login_page.dart';
@@ -108,6 +109,13 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
+  postdata() async {
+    var response = await http.post(Uri.parse(""), body: {
+      "email": email,
+      "password": password,
+      "username": username,
+    });
+  }
   // Future<User> _register(String username, String email, String password) async {
   //   final response = await http.post(
   //     Uri.parse(""),
@@ -131,6 +139,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return InkWell(
       onTap: () {
         // ignore: avoid_print
+        postdata();
         print(
             "Registered with Username: ${usernameController.text}, Email: ${emailController.text}, Password: ${passwordController.text}");
 
@@ -143,7 +152,7 @@ class _SignUpPageState extends State<SignUpPage> {
         } else {
           print("Fail!");
         }
-        
+
         Navigator.push(
           context,
           MaterialPageRoute(

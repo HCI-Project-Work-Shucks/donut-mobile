@@ -21,7 +21,13 @@ class _DemandPage extends State<DemandPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('demand page'),
+        title: const Text(
+          'demand page',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
+        ),
         backgroundColor: kPrimaryColor,
         actions: [
           IconButton(

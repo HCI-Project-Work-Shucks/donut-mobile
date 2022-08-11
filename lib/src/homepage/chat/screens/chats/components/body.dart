@@ -22,20 +22,23 @@ class Body extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: ListView.builder(
-            itemCount: chatsData.length,
-            itemBuilder: (context, index) => ChatCard(
-              chat: Temp[index],
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MessagesScreen(
-                      index: index,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
+            child: ListView.builder(
+              itemCount: Temp.length,
+              itemBuilder: (context, index) => ChatCard(
+                chat: Temp[index],
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MessagesScreen(
+                        index: Temp[index].id,
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ),

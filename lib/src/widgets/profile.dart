@@ -15,8 +15,8 @@ class _ProfileMainState extends State<ProfileMain> {
   final double profileHeight = 144;
   final profileCover = 'assets/images/profile_bg.jpeg';
   final profileImage = 'assets/images/profile_pic.jpeg';
-  late String username = users[widget.index].name;
-  late String description = users[widget.index].about;
+  late String username = test_users[widget.index].name;
+  late String description = test_users[widget.index].about;
 
   @override
   Widget build(BuildContext context) {

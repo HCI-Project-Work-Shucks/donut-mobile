@@ -28,23 +28,28 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     count_items();
-    return Column(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-            child: ListView.builder(
-              itemCount: count,
-              itemBuilder: (context, index) => Message(
-                message: Temp[index],
+    return Container(
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              child: ListView.builder(
+                itemCount: count,
+                itemBuilder: (context, index) => Message(
+                  message: Temp[index],
+                ),
               ),
             ),
           ),
-        ),
-        ChatInputField(
-          index: index,
-        ),
-      ],
+          ChatInputField(
+            index: index,
+          ),
+        ],
+      ),
     );
   }
 }

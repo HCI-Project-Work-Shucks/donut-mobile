@@ -1,8 +1,8 @@
-class User {
+class TestUser {
   int uid, phone, completedDeals, pendingDeals;
   String name, emails, password, about, profilePic;
 
-  User({
+  TestUser({
     this.uid = 00000000,
     this.name = '',
     this.phone = 00000000,
@@ -15,8 +15,8 @@ class User {
   });
 }
 
-List users = [
-  User(
+List test_users = [
+  TestUser(
     uid: 00000001,
     name: 'Donut_1',
     profilePic: 'assets/images/profile_pic.jpeg',
@@ -27,7 +27,7 @@ List users = [
     emails: 'a',
     password: '1',
   ),
-  User(
+  TestUser(
     uid: 00000002,
     name: 'Donut_2',
     about: 'I am a donut',
@@ -37,7 +37,7 @@ List users = [
     emails: 'b',
     password: '2',
   ),
-  User(
+  TestUser(
     uid: 00000003,
     name: 'Donut_3',
     about: 'I am a donut',

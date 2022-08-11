@@ -3,13 +3,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:donut/src/models/tests/users.dart';
-import 'package:donut/src/homepage/chat/chat.dart';
 
 class NumbersWidget extends StatelessWidget {
   int index;
   NumbersWidget({Key? key, required this.index}) : super(key: key);
-  late int value1 = users[index].completedDeals;
-  late int value2 = users[index].pendingDeals;
+  late int value1 = test_users[index].completedDeals;
+  late int value2 = test_users[index].pendingDeals;
 
   @override
   Widget build(BuildContext context) => Row(

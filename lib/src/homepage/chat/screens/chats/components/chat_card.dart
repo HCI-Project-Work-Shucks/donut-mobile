@@ -15,6 +15,8 @@ class ChatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
+
     return InkWell(
       onTap: press,
       child: Padding(
@@ -25,23 +27,26 @@ class ChatCard extends StatelessWidget {
             Stack(
               children: [
                 CircleAvatar(
-                  radius: 24,
+                  radius: 30,
                   backgroundImage: AssetImage(chat.image),
                 ),
               ],
             ),
             Expanded(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      chat.name,
+                      capitalize(chat.name),
                       style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
+                    const SizedBox(
+                      height: 7,
+                    ),
+                    Text(chat.item)
                   ],
                 ),
               ),
