@@ -6,7 +6,8 @@ import 'package:donut/src/constants.dart';
 import 'package:donut/src/homepage/demand/demand.dart';
 import 'package:donut/src/homepage/donate/donate.dart';
 import 'package:donut/src/homepage/profile/profile.dart';
-import 'package:donut/src/homepage/chat/chat.dart';
+
+import 'chat/screens/chats/chats_screen.dart';
 
 class Home extends StatefulWidget {
   int pos;
@@ -26,7 +27,7 @@ class _HomeState extends State<Home> {
       const DonatePage(),
       ProfileMain(index: pos),
       const DemandPage(),
-      const Chat(),
+      ChatsScreen(),
     ];
   }
 

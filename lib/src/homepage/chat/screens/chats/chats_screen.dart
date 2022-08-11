@@ -1,5 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors
 
+import 'package:donut/src/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'components/body.dart';
@@ -22,6 +23,13 @@ class _ChatsScreenState extends State<ChatsScreen> {
 AppBar buildAppBar() {
   return AppBar(
     automaticallyImplyLeading: false,
-    title: const Text("Chats"),
+    backgroundColor: kPrimaryColor,
+    title: const Text(
+      "Chats",
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 22,
+      ),
+    ),
   );
 }

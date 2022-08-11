@@ -38,7 +38,10 @@ class _ChatInputFieldState extends State<ChatInputField> {
       }
     }
 
-    Widget uploadButton() => ElevatedButton(
+    Widget uploadButton() => RaisedButton(
+          // ignore: prefer_const_constructors
+          color: kSecondaryColor,
+
           onPressed: () {
             pickImage(ImageSource.camera);
             final message = ChatMessage(
@@ -50,6 +53,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
           },
           child: Icon(
             Icons.camera_alt_outlined,
+            size: 25,
             color:
                 Theme.of(context).textTheme.bodyText1!.color!.withOpacity(0.64),
           ),
@@ -58,12 +62,13 @@ class _ChatInputFieldState extends State<ChatInputField> {
     final TextEditingController controller = TextEditingController();
 
     return Container(
+      alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(
         horizontal: kDefaultPadding,
         vertical: kDefaultPadding / 2,
       ),
-      decoration: BoxDecoration(
-        color: Theme.of(context).scaffoldBackgroundColor,
+      decoration: const BoxDecoration(
+        color: kPrimaryColor,
       ),
       child: SafeArea(
         child: Row(
@@ -75,7 +80,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
                   horizontal: kDefaultPadding * 0.75,
                 ),
                 decoration: BoxDecoration(
-                  color: kPrimaryColor.withOpacity(0.05),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(40),
                 ),
                 child: Row(
@@ -85,6 +90,8 @@ class _ChatInputFieldState extends State<ChatInputField> {
                       child: TextField(
                         focusNode: node,
                         decoration: const InputDecoration(
+                          // filled: true,
+                          // fillColor: Colors.green,
                           hintText: "Type message",
                           border: InputBorder.none,
                         ),
@@ -101,11 +108,14 @@ class _ChatInputFieldState extends State<ChatInputField> {
                       ),
                     ),
                     const SizedBox(width: kDefaultPadding / 4),
-                    uploadButton()
                   ],
                 ),
               ),
             ),
+            const SizedBox(
+              width: 5,
+            ),
+            uploadButton()
           ],
         ),
       ),

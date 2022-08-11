@@ -1,32 +1,39 @@
 // ignore_for_file: file_names
+import 'dart:developer';
 
 class Chat {
-  final String name, image;
+  final String name, image, item;
   final int id;
-  final bool isClosed;
+  bool isClosed;
 
   Chat({
     this.name = '',
     this.image = '',
     this.id = 0,
     required this.isClosed,
+    this.item = '',
   });
 }
 
 List chatsData = [
   Chat(
-      id: 1,
-      name: "user_1",
-      image: "assets/images/profile_pic.jpeg",
-      isClosed: false),
+    id: 0,
+    name: "user_1",
+    image: "assets/images/profile_pic.jpeg",
+    isClosed: false,
+    item: 'Donut',
+  ),
   Chat(
-      id: 2,
+      id: 1,
       name: "user_2",
       image: "assets/images/profile_pic.jpeg",
-      isClosed: false),
+      isClosed: false,
+      item: 'Donut Box'),
   Chat(
-      id: 3,
-      name: "user_3",
-      image: "assets/images/profile_pic.jpeg",
-      isClosed: false),
+    id: 2,
+    name: "user_3",
+    image: "assets/images/profile_pic.jpeg",
+    isClosed: false,
+    item: 'Buy Donut',
+  ),
 ];

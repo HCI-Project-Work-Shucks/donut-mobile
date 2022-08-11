@@ -19,16 +19,22 @@ class _DonatePage extends State<DonatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('donate page'),
+        title: const Text(
+          'Donate Page',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
+        ),
         backgroundColor: kPrimaryColor,
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddItemDonate()),
+                MaterialPageRoute(builder: (context) => const AddItemDonate()),
               );
             },
             tooltip: 'Add item that you want to donate',

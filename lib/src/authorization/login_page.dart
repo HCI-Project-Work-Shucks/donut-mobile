@@ -2,6 +2,7 @@ import 'package:donut/src/authorization/signup_page.dart';
 import 'package:donut/src/models/tests/users.dart';
 import 'package:donut/src/homepage/home.dart';
 import 'package:flutter/material.dart';
+import 'package:donut/src/models/user.dart';
 
 import '../widgets/bezier_container1.dart';
 
@@ -81,13 +82,13 @@ class _LoginPageState extends State<LoginPage> {
   Widget _submitButton() {
     return InkWell(
       onTap: () {
-        for (var items in users) {
+        for (var items in test_users) {
           if (items.emails == email) {
             break;
           }
           index++;
         }
-        if (index < 0 || users[index].password != password) {
+        if (index < 0 || test_users[index].password != password) {
           index = 0;
         } else {
           Navigator.push(
