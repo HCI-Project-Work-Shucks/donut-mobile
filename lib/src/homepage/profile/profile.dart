@@ -9,7 +9,6 @@ import 'dart:io';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
-
 class ProfileMain extends StatefulWidget {
   int index;
   ProfileMain({Key? mykey, required this.index}) : super(key: mykey);
@@ -25,6 +24,7 @@ class _ProfileMainState extends State<ProfileMain> {
   late String profileImage = test_users[widget.index].profilePic;
   late String username = test_users[widget.index].name;
   late String description = test_users[widget.index].about;
+
   File? image;
 
   Future pickImage(ImageSource source) async {

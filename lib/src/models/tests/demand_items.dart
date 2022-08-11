@@ -28,15 +28,7 @@ List createItems = [
     time: '2022-07-22',
     type: DemandType.food,
   ),
-  DemandItems(
-    name: 'I have a donut box',
-    title: 'Donut',
-    description: "I have too much donut i need give away some",
-    picture: 'assets/images/donut_1.jpeg',
-    isPending: true,
-    time: '2022-07-22',
-    type: DemandType.nonFood,
-  ),
+  
   DemandItems(
     name: 'I donut can buy',
     title: 'Donut',

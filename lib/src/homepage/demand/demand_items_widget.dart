@@ -295,6 +295,7 @@ class _DemandItemWidgetState extends State<DemandItemWidget> {
                     const SizedBox(
                       height: 5,
                     ),
+
                     Text(
                       'time: ' + widget.item.time,
                       textAlign: TextAlign.left,
@@ -303,6 +304,7 @@ class _DemandItemWidgetState extends State<DemandItemWidget> {
                       ),
                     ),
                   ],
+
                 ],
               ),
             )

@@ -59,6 +59,7 @@ class _AddItemDemandState extends State<AddItemDemand> {
 
     Widget uploadButton() => FloatingActionButton(
           backgroundColor: kSecondaryColor,
+
           tooltip: 'Upload picture here',
           onPressed: () {
             pickImage(ImageSource.camera);

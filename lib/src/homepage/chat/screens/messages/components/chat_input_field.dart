@@ -42,6 +42,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
           // ignore: prefer_const_constructors
           color: kSecondaryColor,
 
+
           onPressed: () {
             pickImage(ImageSource.camera);
             final message = ChatMessage(
@@ -108,6 +109,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
                       ),
                     ),
                     const SizedBox(width: kDefaultPadding / 4),
+
                   ],
                 ),
               ),
